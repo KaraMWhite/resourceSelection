@@ -1,0 +1,31 @@
+skunk_id,date,reproductive_status,weight_g,ear_nose_mm,left_ear_mm,right_hindfoot_mm,head_mm,body_mm,tail_mm,neck_mm,temperature_F,pulse_per_min,respiration_per_min,eye_condition,teeth_condition
+02-20-M,4/20/2022,Distended testes,800,27,20,44,62,285,218,NA,95.9,68,12,Normal,Worn
+01-20-F,4/19/2022,Not active ,630,24,27,40,72,252,192,1200,97.4,120,NA,Normal,Good
+01-21-M,3/20/2021,Distended testes,950,24,21,50,85,295,210,NA,NA,68,80,Normal,Good
+01-21-M,3/25/2021,Distended testes,950,NA,NA,NA,NA,NA,NA,NA,97.6,NA,NA,Normal,Good
+02-21-M,3/23/2021,Distended testes,800,20.5,30,48,83,260,230,120,98.6,52,48,Normal,Good
+03-21-F,3/25/2021,Distended testes,650,25,23,42,74,220,140,100,96.3,72,84,Normal,Good
+03-21-F,5/6/2021,Not active ,525,24,NA,42,104,220,185,90,92.3,NA,44,Normal,Good
+04-21-M,3/27/2021,Not active ,975,22,28,49,75,290,210,NA,95.4,NA,76,Normal,Broken M1
+05-21-M,4/3/2021,Distended testes,800,26,26,45,85,280,200,120,94.8,52,40,Normal,Good
+06-21-F,4/3/2021,Distended testes,650,20,NA,41,72,NA,185,110,96,40,36,Normal,Good
+07-21-M,4/6/2021,Not active ,975,25,27,52,79,280,190,NA,91.4,NA,68,Normal,Good
+07-21-M,4/23/2021,Distended testes,925,NA,NA,NA,NA,NA,NA,NA,95.5,44,56,Normal,Good
+08-21-M,4/6/2021,Distended testes,725,26,28,43,65,280,180,NA,93,NA,52,Normal,Good
+09-21-M,4/9/2021,Distended testes,800,25,31,47,85,275,160,130,96.3,44,36,Normal,Good
+10-21-M,4/10/2021,Distended testes,800,24,NA,46,105,250,170,130,92.2,44,44,Normal,Good
+11-21-M,4/11/2021,Distended testes,975,29,32,47,95,295,210,NA,92.7,NA,52,Normal,Good
+12-21-M,4/12/2021,Distended testes,925,27,34,49,84,274,210,125,94.5,NA,28,Normal,Good
+13-21-M,4/13/2021,Distended testes,850,27,32,47,NA,270,195,NA,90.6,56,28,Normal,Good
+14-21-M,4/14/2021,Distended testes,800,24,NA,37,96,237,228,130,93.1,NA,64,Normal,Good
+14-21-M,5/16/2021,Not distended,700,NA,NA,NA,NA,NA,NA,115,94.1,NA,68,Normal,Good
+15-21-M,4/15/2021,Distended testes,775,22,29,40,107,210,175,135,92.4,NA,40,Normal,Good
+16-21-M,4/21/2021,Distended testes,625,28,31,47,98,240,205,100,95.4,NA,48,Normal,Good
+16-21-M,4/25/2021,Distended testes,625,NA,NA,NA,NA,NA,NA,NA,92.1,48,56,Normal,Good
+01-22-M,3/29/2022,Distended testes,925,27,29,56,100,235,210,130,94.9,NA,68,Normal,Good
+02-22-F,3/30/2022,Not active ,600,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Normal,Good
+03-22-M,4/3/2022,Distended testes,1075,26,33,57,105,285,180,140,92,76,44,Normal,Good
+04-22-M,4/10/2022,Distended testes,575,24,27,52,95,260,165,115,93.5,NA,56,Normal,Good
+05-22-M,4/24/2022,Distended testes,800,27,35,61,95,260,215,125,93.3,NA,48,Normal,Good
+06-22-F,5/3/2022,Not active ,500,27,34,47,90,230,180,120,90.4,NA,28,Normal,Good
+07-22-F,5/25/2022,Swollen abdomen,575,28,34,56,90,240,175,90,94,NA,40,Normal,Good
