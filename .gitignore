@@ -3,3 +3,5 @@ manuscripts/
 figures/
 *.png
 *.jpg
+.Rproj.user
+data/
