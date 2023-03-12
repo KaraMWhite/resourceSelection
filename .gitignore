@@ -4,6 +4,6 @@ figures/
 *.png
 *.jpg
 .Rproj.user
-*csv
+*.csv
 .Rproj.user/
 .Rhistory
