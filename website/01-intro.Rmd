@@ -1,11 +1,23 @@
-# Hello bookdown 
+# Relational Database 
 
-All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (`#`) per .Rmd file.
+This chapter contains details the creation of a relational database as partial fulfillment of the RDS 2023 course requirements. 
 
-## A section
+## Database Design
 
-All chapter sections start with a second-level (`##`) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.
+Below is an image of the database structure I intend to use to host the data for
+my final semester project. The diagram describes the tables that will compose my 
+database. Primary keys are in **bold** and foreign keys are in *italics*.
 
-### An unnumbered section {-}
+```{r design, fig.align='center', out.width='100%', eval = TRUE, echo = FALSE}
 
-Chapters and sections are numbered by default. To un-number a heading, add a `{.unnumbered}` or the shorter `{-}` at the end of the heading, like in this section.
+knitr::include_graphics("db_outline.jpg")
+
+```
+
+## Database Construction
+
+```{r}
+
+```
+
+

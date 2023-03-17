@@ -1,6 +1,6 @@
 --- 
-title: "A Minimal Book Example"
-author: "John Doe"
+title: "Plains spotted skunks in South Dakota"
+author: "Kara White"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -8,53 +8,27 @@ bibliography: [book.bib, packages.bib]
 # url: your book url like https://bookdown.org/yihui/bookdown
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
-  This is a minimal example of using the bookdown package to write a book.
+  This is my initial attempt using the bookdown package to write a book website
+  exploring spotted skunk resource selection data in South Dakota as part of the
+  RDS 2023 class requirements..
   The HTML output format for this example is bookdown::gitbook,
   set in the _output.yml file.
 link-citations: yes
 github-repo: rstudio/bookdown-demo
 ---
 
-# About
+# Overview {-}
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$.
+The plains spotted skunk is a small (i.e., ≤1 kg) carnivore native to central North America with a historical distribution extending from the southern plains of Manitoba, Canada to the coastal plains of Tamaulipas, Mexico, and east-west from the Mississippi River to the Rocky Mountains. 
 
-## Usage 
+```{r image, fig.cap= "photo by Danni Brosend", fig.align='center', out.width='100%', eval = TRUE, echo = FALSE}
 
-Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
+knitr::include_graphics("spotskunk.jpg")
 
-Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
-
-The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
-
-## Render book
-
-You can render the HTML version of this example book without changing anything:
-
-1. Find the **Build** pane in the RStudio IDE, and
-
-1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
-
-Or build the book from the R console:
-
-```{r, eval=FALSE}
-bookdown::render_book()
 ```
 
-To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
+Long-term harvest trends of spotted skunks east of the Rocky Mountains indicated a >90% reduction in populations. Causes for the reduction have not been identified, but intensified land-use practices that reduce habitat via agricultural expansion, decrease prey abundances via widespread use of agricultural pesticides, and increase competition via altered predator communities have been hypothesized. 
 
-## Preview book
+Perceived population concerns led to a petition to consider plains spotted skunks under the U.S. Endangered Species Act and the United States Fish and Wildlife Service (USFWS) conducted a species status assessment of the plains spotted skunk. However, there is a paucity of information about plains spotted skunks to inform conservation decisions and efforts. Few studies have investigated plains spotted skunks, and even fewer have focused on the northern portion of the species range. 
 
-As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
-
-```{r eval=FALSE}
-bookdown::serve_book()
-```
-
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
+Follow along with me as I attempt to address these knowledge gaps and inform conservation and management of plains spotted skunks in South Dakota!
