@@ -35,7 +35,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Kara White" />
 
 
-<meta name="date" content="2023-03-17" />
+<meta name="date" content="2023-03-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -66,6 +66,70 @@ set in the _output.yml file.</p>" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -87,7 +151,12 @@ set in the _output.yml file.</p>" />
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
 <li class="chapter" data-level="1" data-path="relational-database.html"><a href="relational-database.html"><i class="fa fa-check"></i><b>1</b> Relational Database</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="relational-database.html"><a href="relational-database.html#database-design"><i class="fa fa-check"></i><b>1.1</b> Database Design</a></li>
+<li class="chapter" data-level="1.1" data-path="relational-database.html"><a href="relational-database.html#designing-a-database"><i class="fa fa-check"></i><b>1.1</b> Designing a Database</a></li>
+<li class="chapter" data-level="1.2" data-path="relational-database.html"><a href="relational-database.html#creating-the-database"><i class="fa fa-check"></i><b>1.2</b> Creating the Database</a></li>
+<li class="chapter" data-level="1.3" data-path="relational-database.html"><a href="relational-database.html#creating-tables"><i class="fa fa-check"></i><b>1.3</b> Creating tables</a></li>
+<li class="chapter" data-level="1.4" data-path="relational-database.html"><a href="relational-database.html#reading-in-csvs"><i class="fa fa-check"></i><b>1.4</b> Reading in CSVs</a></li>
+<li class="chapter" data-level="1.5" data-path="relational-database.html"><a href="relational-database.html#populating-database-tables"><i class="fa fa-check"></i><b>1.5</b> Populating database tables</a></li>
+<li class="chapter" data-level="1.6" data-path="relational-database.html"><a href="relational-database.html#querying-the-database"><i class="fa fa-check"></i><b>1.6</b> Querying the database</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -111,13 +180,293 @@ set in the _output.yml file.</p>" />
             <section class="normal" id="section-">
 <div id="relational-database" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Relational Database<a href="relational-database.html#relational-database" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This chapter contains details the creation of a relational database as partial fulfillment of the RDS 2023 course requirements.</p>
-<div id="database-design" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Database Design<a href="relational-database.html#database-design" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Below is an image of the database structure I intend to use to host the data for
+<p>This chapter documents the creation of a relational database in partial fulfillment of the RDS 2023 course requirements.</p>
+<div id="designing-a-database" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Designing a Database<a href="relational-database.html#designing-a-database" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Below is an image of the database structure I will to use to host the data for
 my final semester project. The diagram describes the tables that will compose my
-database. Primary keys are in <strong>bold</strong> and foreign keys are in <em>italics</em></p>
+database. Primary keys are in <strong>bold</strong> and foreign keys are in <em>italics</em>.</p>
 <p><img src="db_outline.jpg" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="creating-the-database" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Creating the Database<a href="relational-database.html#creating-the-database" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>My first step is to create a database and establish a connection between R and SQLite</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="relational-database.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI) <span class="co">#load package</span></span>
+<span id="cb1-2"><a href="relational-database.html#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="relational-database.html#cb1-3" aria-hidden="true" tabindex="-1"></a>skunks_db <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">&quot;C:/Users/Kara.White/Documents/PhD/resourceSelection/data/skunks.db&quot;</span>) <span class="co">#establish db connection</span></span></code></pre></div>
+</div>
+<div id="creating-tables" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Creating tables<a href="relational-database.html#creating-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that I have created and established a connection to the database I can begin to create tables</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="relational-database.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create skunk table</span></span>
+<span id="cb2-2"><a href="relational-database.html#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="relational-database.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(skunks_db, <span class="st">&quot;CREATE TABLE skunks (</span></span>
+<span id="cb2-4"><a href="relational-database.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">skunk_id varchar(10) NOT NULL,</span></span>
+<span id="cb2-5"><a href="relational-database.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">sex char(1) CHECK (sex IN (&#39;M&#39;, &#39;F&#39;)),</span></span>
+<span id="cb2-6"><a href="relational-database.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="st">age_class varchar(8) CHECK (age_class IN (&#39;juvenile&#39;, &#39;subadult&#39;, &#39;adult&#39;)),</span></span>
+<span id="cb2-7"><a href="relational-database.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">PRIMARY KEY (skunk_id)</span></span>
+<span id="cb2-8"><a href="relational-database.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">);&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="relational-database.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create capture sites table</span></span>
+<span id="cb3-2"><a href="relational-database.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(skunks_db, <span class="st">&quot;CREATE TABLE capture_sites (</span></span>
+<span id="cb3-3"><a href="relational-database.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="st">site varchar(7) NOT NULL PRIMARY KEY,</span></span>
+<span id="cb3-4"><a href="relational-database.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="st">utm_x double,</span></span>
+<span id="cb3-5"><a href="relational-database.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="st">utm_y double</span></span>
+<span id="cb3-6"><a href="relational-database.html#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="st">);&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="relational-database.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create captures table</span></span>
+<span id="cb4-2"><a href="relational-database.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(skunks_db, <span class="st">&quot;CREATE TABLE captures (</span></span>
+<span id="cb4-3"><a href="relational-database.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="st">capture_id INTEGER PRIMARY KEY AUTOINCREMENT,</span></span>
+<span id="cb4-4"><a href="relational-database.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">skunk_id varchar(10),</span></span>
+<span id="cb4-5"><a href="relational-database.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="st">date text,</span></span>
+<span id="cb4-6"><a href="relational-database.html#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="st">site varchar(7),</span></span>
+<span id="cb4-7"><a href="relational-database.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">FOREIGN KEY(skunk_id) REFERENCES skunks(skunks_id)</span></span>
+<span id="cb4-8"><a href="relational-database.html#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="st">FOREIGN KEY(site) REFERENCES capture_sites(site)</span></span>
+<span id="cb4-9"><a href="relational-database.html#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="st">);&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="relational-database.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create biometrics table</span></span>
+<span id="cb5-2"><a href="relational-database.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(skunks_db, <span class="st">&quot;CREATE TABLE biometrics (</span></span>
+<span id="cb5-3"><a href="relational-database.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="st">measurement_id INTEGER PRIMARY KEY AUTOINCREMENT,</span></span>
+<span id="cb5-4"><a href="relational-database.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="st">skunk_id varchar(8),</span></span>
+<span id="cb5-5"><a href="relational-database.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="st">date text,</span></span>
+<span id="cb5-6"><a href="relational-database.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="st">reproductive_status char(20),</span></span>
+<span id="cb5-7"><a href="relational-database.html#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="st">weight_g float,</span></span>
+<span id="cb5-8"><a href="relational-database.html#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="st">ear_nose_mm float,</span></span>
+<span id="cb5-9"><a href="relational-database.html#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="st">left_ear_mm float,</span></span>
+<span id="cb5-10"><a href="relational-database.html#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="st">right_hindfoot_mm float,</span></span>
+<span id="cb5-11"><a href="relational-database.html#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="st">head_mm float,</span></span>
+<span id="cb5-12"><a href="relational-database.html#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="st">body_mm float,</span></span>
+<span id="cb5-13"><a href="relational-database.html#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="st">tail_mm float,</span></span>
+<span id="cb5-14"><a href="relational-database.html#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="st">neck_mm float,</span></span>
+<span id="cb5-15"><a href="relational-database.html#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="st">temperature_F float,</span></span>
+<span id="cb5-16"><a href="relational-database.html#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="st">pulse_per_min float,</span></span>
+<span id="cb5-17"><a href="relational-database.html#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="st">respiration_per_min float,</span></span>
+<span id="cb5-18"><a href="relational-database.html#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="st">eye_condition char(10),</span></span>
+<span id="cb5-19"><a href="relational-database.html#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="st">teeth_condition varchar(10),</span></span>
+<span id="cb5-20"><a href="relational-database.html#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="st">FOREIGN KEY (skunk_id) REFERENCES skunks(skunk_id)</span></span>
+<span id="cb5-21"><a href="relational-database.html#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="st">);&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="relational-database.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create biological samples table</span></span>
+<span id="cb6-2"><a href="relational-database.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(skunks_db, <span class="st">&quot;CREATE TABLE biological_samples (</span></span>
+<span id="cb6-3"><a href="relational-database.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="st">sample_id INTEGER PRIMARY KEY AUTOINCREMENT,</span></span>
+<span id="cb6-4"><a href="relational-database.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="st">skunk_id varchar(8),</span></span>
+<span id="cb6-5"><a href="relational-database.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="st">date text,</span></span>
+<span id="cb6-6"><a href="relational-database.html#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="st">hair char(1) CHECK (hair IN (&#39;Y&#39;, &#39;N&#39;)),</span></span>
+<span id="cb6-7"><a href="relational-database.html#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="st">ear_snip char(1) CHECK (ear_snip IN (&#39;Y&#39;, &#39;N&#39;)),</span></span>
+<span id="cb6-8"><a href="relational-database.html#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="st">scat char(1) CHECK (scat IN (&#39;Y&#39;, &#39;N&#39;)),</span></span>
+<span id="cb6-9"><a href="relational-database.html#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="st">parasites char(1) CHECK (parasites IN (&#39;Y&#39;, &#39;N&#39;)),</span></span>
+<span id="cb6-10"><a href="relational-database.html#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="st">FOREIGN KEY (skunk_id) REFERENCES skunks(skunk_id)</span></span>
+<span id="cb6-11"><a href="relational-database.html#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="st">);&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="relational-database.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create tags table</span></span>
+<span id="cb7-2"><a href="relational-database.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(skunks_db, <span class="st">&quot;CREATE TABLE tags (</span></span>
+<span id="cb7-3"><a href="relational-database.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="st">tag_id INTEGER PRIMARY KEY AUTOINCREMENT,</span></span>
+<span id="cb7-4"><a href="relational-database.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="st">skunk_id varchar(8),</span></span>
+<span id="cb7-5"><a href="relational-database.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="st">ear_left char(3),</span></span>
+<span id="cb7-6"><a href="relational-database.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="st">ear_right char(3),</span></span>
+<span id="cb7-7"><a href="relational-database.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="st">collar_id varchar(10),</span></span>
+<span id="cb7-8"><a href="relational-database.html#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="st">collar_type char(3),</span></span>
+<span id="cb7-9"><a href="relational-database.html#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="st">FOREIGN KEY (skunk_id) REFERENCES skunks(skunk_id)</span></span>
+<span id="cb7-10"><a href="relational-database.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="st">);&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="relational-database.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create deployments table</span></span>
+<span id="cb8-2"><a href="relational-database.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(skunks_db, <span class="st">&quot;CREATE TABLE deployments (</span></span>
+<span id="cb8-3"><a href="relational-database.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="st">deployment_id INTEGER PRIMARY KEY AUTOINCREMENT,</span></span>
+<span id="cb8-4"><a href="relational-database.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="st">skunk_id varchar(8),</span></span>
+<span id="cb8-5"><a href="relational-database.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="st">collar_id varchar(10),</span></span>
+<span id="cb8-6"><a href="relational-database.html#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="st">start_date text,</span></span>
+<span id="cb8-7"><a href="relational-database.html#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="st">end_date text,</span></span>
+<span id="cb8-8"><a href="relational-database.html#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="st">FOREIGN KEY (skunk_id) REFERENCES skunks(skunk_id)</span></span>
+<span id="cb8-9"><a href="relational-database.html#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="st">FOREIGN KEY (collar_id) REFERENCES tags(collar_id)</span></span>
+<span id="cb8-10"><a href="relational-database.html#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="st">);&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="relational-database.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create gps_data_raw table</span></span>
+<span id="cb9-2"><a href="relational-database.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(skunks_db, <span class="st">&quot;CREATE TABLE gps_data_raw (</span></span>
+<span id="cb9-3"><a href="relational-database.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="st">gps_id INTEGER PRIMARY KEY AUTOINCREMENT,</span></span>
+<span id="cb9-4"><a href="relational-database.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="st">collar_id varchar(10),</span></span>
+<span id="cb9-5"><a href="relational-database.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="st">date text,</span></span>
+<span id="cb9-6"><a href="relational-database.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="st">time_24hr text,</span></span>
+<span id="cb9-7"><a href="relational-database.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="st">utm_x double,</span></span>
+<span id="cb9-8"><a href="relational-database.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="st">utm_y double,</span></span>
+<span id="cb9-9"><a href="relational-database.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="st">hdop double,</span></span>
+<span id="cb9-10"><a href="relational-database.html#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="st">FOREIGN KEY(collar_id) REFERENCES tags(collar_id)</span></span>
+<span id="cb9-11"><a href="relational-database.html#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="st">);&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="relational-database.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create vhf_data_raw table</span></span>
+<span id="cb10-2"><a href="relational-database.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(skunks_db, <span class="st">&quot;CREATE TABLE vhf_data_raw (</span></span>
+<span id="cb10-3"><a href="relational-database.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="st">vhf_id INTEGER PRIMARY KEY AUTOINCREMENT,</span></span>
+<span id="cb10-4"><a href="relational-database.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="st">collar_id varchar(10),</span></span>
+<span id="cb10-5"><a href="relational-database.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="st">date text,</span></span>
+<span id="cb10-6"><a href="relational-database.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="st">time_24hr text,</span></span>
+<span id="cb10-7"><a href="relational-database.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="st">utm_x double,</span></span>
+<span id="cb10-8"><a href="relational-database.html#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="st">utm_y double,</span></span>
+<span id="cb10-9"><a href="relational-database.html#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="st">error_ellipse_m2 double,</span></span>
+<span id="cb10-10"><a href="relational-database.html#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="st">FOREIGN KEY(collar_id) REFERENCES tags(collar_id)</span></span>
+<span id="cb10-11"><a href="relational-database.html#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="st">);&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="relational-database.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create location data table</span></span>
+<span id="cb11-2"><a href="relational-database.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(skunks_db, <span class="st">&quot;CREATE TABLE location_data (</span></span>
+<span id="cb11-3"><a href="relational-database.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="st">loc_id INTEGER PRIMARY KEY AUTOINCREMENT,</span></span>
+<span id="cb11-4"><a href="relational-database.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="st">skunk_id varchar(8),</span></span>
+<span id="cb11-5"><a href="relational-database.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="st">collar_id varchar(10),</span></span>
+<span id="cb11-6"><a href="relational-database.html#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="st">date text,</span></span>
+<span id="cb11-7"><a href="relational-database.html#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="st">time_24hr text,</span></span>
+<span id="cb11-8"><a href="relational-database.html#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="st">utm_x double,</span></span>
+<span id="cb11-9"><a href="relational-database.html#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="st">utm_y double,</span></span>
+<span id="cb11-10"><a href="relational-database.html#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="st">FOREIGN KEY (skunk_id) REFERENCES skunks(skunk_id)</span></span>
+<span id="cb11-11"><a href="relational-database.html#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="st">FOREIGN KEY(collar_id) REFERENCES tags(collar_id)</span></span>
+<span id="cb11-12"><a href="relational-database.html#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="st">);&quot;</span>)</span></code></pre></div>
+</div>
+<div id="reading-in-csvs" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Reading in CSVs<a href="relational-database.html#reading-in-csvs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that I have finished creating all of the tables as shown in 1.1 I can load the data that I will use to populate the tables</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="relational-database.html#cb12-1" aria-hidden="true" tabindex="-1"></a>skunks <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/data/skunks.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span>
+<span id="cb12-2"><a href="relational-database.html#cb12-2" aria-hidden="true" tabindex="-1"></a>capture_sites <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/data/capture_sites.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span>
+<span id="cb12-3"><a href="relational-database.html#cb12-3" aria-hidden="true" tabindex="-1"></a>captures <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/data/captures.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span>
+<span id="cb12-4"><a href="relational-database.html#cb12-4" aria-hidden="true" tabindex="-1"></a>biometrics <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/data/Biometrics.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span>
+<span id="cb12-5"><a href="relational-database.html#cb12-5" aria-hidden="true" tabindex="-1"></a>biological_samples <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/data/samples.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span></code></pre></div>
+<p>Before I populate the tables I will check to make sure column names match the ones in the tables I created and rearrange columns so that they appear in the right order</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="relational-database.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(skunks) </span></code></pre></div>
+<pre><code>## [1] &quot;skunk_id&quot;  &quot;sex&quot;       &quot;age_class&quot;</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="relational-database.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(capture_sites)</span></code></pre></div>
+<pre><code>## [1] &quot;site&quot;  &quot;utm_x&quot; &quot;utm_y&quot;</code></pre>
+<p>The first two CSVs have columns with correct names and in the correct order, but I will need to add auto-incremental columns and then re-order the columns for the remaining CSVs.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="relational-database.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb17-2"><a href="relational-database.html#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="relational-database.html#cb17-3" aria-hidden="true" tabindex="-1"></a>captures<span class="sc">$</span>capture_id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(captures) <span class="co">#add column</span></span>
+<span id="cb17-4"><a href="relational-database.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(captures, <span class="dv">2</span>) <span class="co">#check column added</span></span></code></pre></div>
+<pre><code>##   skunk_id      date    site capture_id
+## 1  01-20-F 4/18/2020 F006-20          1
+## 2  02-20-M 4/19/2020 F003-20          2</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="relational-database.html#cb19-1" aria-hidden="true" tabindex="-1"></a>captures <span class="ot">&lt;-</span> captures[, <span class="fu">c</span>(<span class="st">&quot;capture_id&quot;</span>, <span class="st">&quot;skunk_id&quot;</span>, <span class="st">&quot;date&quot;</span>, <span class="st">&quot;site&quot;</span>)] <span class="co">#reorder columns</span></span>
+<span id="cb19-2"><a href="relational-database.html#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="relational-database.html#cb19-3" aria-hidden="true" tabindex="-1"></a>biometrics<span class="sc">$</span>measurement_id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(biometrics) <span class="co">#add column</span></span>
+<span id="cb19-4"><a href="relational-database.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biometrics, <span class="dv">2</span>) <span class="co">#check column added</span></span></code></pre></div>
+<pre><code>##   skunk_id      date reproductive_status weight_g ear_nose_mm left_ear_mm
+## 1  02-20-M 4/20/2022    Distended testes      800          27          20
+## 2  01-20-F 4/19/2022         Not active       630          24          27
+##   right_hindfoot_mm head_mm body_mm tail_mm neck_mm temperature_F pulse_per_min
+## 1                44      62     285     218      NA          95.9            68
+## 2                40      72     252     192    1200          97.4           120
+##   respiration_per_min eye_condition teeth_condition measurement_id
+## 1                  12        Normal            Worn              1
+## 2                  NA        Normal            Good              2</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="relational-database.html#cb21-1" aria-hidden="true" tabindex="-1"></a>biometrics <span class="ot">&lt;-</span> biometrics <span class="sc">%&gt;%</span> <span class="fu">select</span>(measurement_id, <span class="fu">everything</span>()) <span class="co">#reorder columns</span></span>
+<span id="cb21-2"><a href="relational-database.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biometrics, <span class="dv">2</span>) <span class="co">#check columns are re-ordered</span></span></code></pre></div>
+<pre><code>##   measurement_id skunk_id      date reproductive_status weight_g ear_nose_mm
+## 1              1  02-20-M 4/20/2022    Distended testes      800          27
+## 2              2  01-20-F 4/19/2022         Not active       630          24
+##   left_ear_mm right_hindfoot_mm head_mm body_mm tail_mm neck_mm temperature_F
+## 1          20                44      62     285     218      NA          95.9
+## 2          27                40      72     252     192    1200          97.4
+##   pulse_per_min respiration_per_min eye_condition teeth_condition
+## 1            68                  12        Normal            Worn
+## 2           120                  NA        Normal            Good</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="relational-database.html#cb23-1" aria-hidden="true" tabindex="-1"></a>biological_samples<span class="sc">$</span>sample_id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(biological_samples) <span class="co">#add column</span></span>
+<span id="cb23-2"><a href="relational-database.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biological_samples, <span class="dv">2</span>) <span class="co">#check column added</span></span></code></pre></div>
+<pre><code>##   skunk_id      date hair ear_snip scat parasites sample_id
+## 1  01-20-F 4/19/2020    Y        Y    N         N         1
+## 2  02-20-M 4/20/2020    Y        Y    N         N         2</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="relational-database.html#cb25-1" aria-hidden="true" tabindex="-1"></a>biological_samples <span class="ot">&lt;-</span> biological_samples <span class="sc">%&gt;%</span> <span class="fu">select</span>(sample_id, <span class="fu">everything</span>()) <span class="co">#reorder columns</span></span>
+<span id="cb25-2"><a href="relational-database.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biological_samples, <span class="dv">2</span>) <span class="co">#check columns are re-ordered</span></span></code></pre></div>
+<pre><code>##   sample_id skunk_id      date hair ear_snip scat parasites
+## 1         1  01-20-F 4/19/2020    Y        Y    N         N
+## 2         2  02-20-M 4/20/2020    Y        Y    N         N</code></pre>
+</div>
+<div id="populating-database-tables" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Populating database tables<a href="relational-database.html#populating-database-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that I have checked that all column names match the column names I assigned when creating the tables I can insert the data into the tables</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="relational-database.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into captures table</span></span>
+<span id="cb27-2"><a href="relational-database.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;skunks&quot;</span>, skunks, <span class="at">append =</span> T)</span>
+<span id="cb27-3"><a href="relational-database.html#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="relational-database.html#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into capture_sites table</span></span>
+<span id="cb27-5"><a href="relational-database.html#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;capture_sites&quot;</span>, capture_sites, <span class="at">append =</span> T)</span>
+<span id="cb27-6"><a href="relational-database.html#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="relational-database.html#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into captures table</span></span>
+<span id="cb27-8"><a href="relational-database.html#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;captures&quot;</span>, captures, <span class="at">append =</span> T)</span>
+<span id="cb27-9"><a href="relational-database.html#cb27-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-10"><a href="relational-database.html#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into biometrics table</span></span>
+<span id="cb27-11"><a href="relational-database.html#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;biometrics&quot;</span>, biometrics, <span class="at">append =</span> T)</span>
+<span id="cb27-12"><a href="relational-database.html#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-13"><a href="relational-database.html#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="do">##add data from csv into biological samples table</span></span>
+<span id="cb27-14"><a href="relational-database.html#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;biological_samples&quot;</span>, biological_samples, <span class="at">append =</span> T)</span></code></pre></div>
+</div>
+<div id="querying-the-database" class="section level2 hasAnchor" number="1.6">
+<h2><span class="header-section-number">1.6</span> Querying the database<a href="relational-database.html#querying-the-database" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that I have inserted data into the table, I can make basic queries to check that the data has been inserted into the tables correctly</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="relational-database.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(skunks_db, <span class="st">&quot;SELECT * FROM skunks LIMIT 10;&quot;</span>) <span class="co">#skunks table</span></span></code></pre></div>
+<pre><code>##    skunk_id sex age_class
+## 1   01-20-F   F     adult
+## 2   02-20-M   M     adult
+## 3   01-21-M   M     adult
+## 4   02-21-M   M     adult
+## 5   03-21-F   F     adult
+## 6   04-21-M   M     adult
+## 7   05-21-M   M     adult
+## 8   06-21-F   F     adult
+## 9   07-21-M   M     adult
+## 10  08-21-M   M     adult</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="relational-database.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(skunks_db, <span class="st">&quot;SELECT * FROM capture_sites LIMIT 10;&quot;</span>) <span class="co">#capture sites table</span></span></code></pre></div>
+<pre><code>##       site  utm_x   utm_y
+## 1  F003-20 481063 4987647
+## 2  F006-20 480943 4989279
+## 3  F012-20 478896 4988372
+## 4  F016-21 478920 4988815
+## 5  F033-21 477448 4994177
+## 6  F034-21 478153 4994150
+## 7  F043-21 478135 4994097
+## 8  F048-21 480580 4998646
+## 9  F053-21 478288 4998991
+## 10 F066-21 480551 4995177</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="relational-database.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(skunks_db, <span class="st">&quot;SELECT * FROM captures LIMIT 10;&quot;</span>) <span class="co">#captures table</span></span></code></pre></div>
+<pre><code>##    capture_id skunk_id      date    site
+## 1           1  01-20-F 4/18/2020 F006-20
+## 2           2  02-20-M 4/19/2020 F003-20
+## 3           3     &lt;NA&gt; 4/19/2020 F012-20
+## 4           4  01-21-M 3/20/2021 F033-21
+## 5           5  02-21-M 3/23/2021 F034-21
+## 6           6  01-21-M 3/25/2021 F034-21
+## 7           7  03-21-F 3/25/2021 F043-21
+## 8           8  04-21-M 3/27/2021 F033-21
+## 9           9  04-21-M  4/2/2021 F034-21
+## 10         10  05-21-M  4/3/2021 F034-21</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="relational-database.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(skunks_db, <span class="st">&quot;SELECT * FROM biometrics LIMIT 10;&quot;</span>) <span class="co">#biometrics table</span></span></code></pre></div>
+<pre><code>##    measurement_id skunk_id      date reproductive_status weight_g ear_nose_mm
+## 1               1  02-20-M 4/20/2022    Distended testes      800        27.0
+## 2               2  01-20-F 4/19/2022         Not active       630        24.0
+## 3               3  01-21-M 3/20/2021    Distended testes      950        24.0
+## 4               4  01-21-M 3/25/2021    Distended testes      950          NA
+## 5               5  02-21-M 3/23/2021    Distended testes      800        20.5
+## 6               6  03-21-F 3/25/2021    Distended testes      650        25.0
+## 7               7  03-21-F  5/6/2021         Not active       525        24.0
+## 8               8  04-21-M 3/27/2021         Not active       975        22.0
+## 9               9  05-21-M  4/3/2021    Distended testes      800        26.0
+## 10             10  06-21-F  4/3/2021    Distended testes      650        20.0
+##    left_ear_mm right_hindfoot_mm head_mm body_mm tail_mm neck_mm temperature_F
+## 1           20                44      62     285     218      NA          95.9
+## 2           27                40      72     252     192    1200          97.4
+## 3           21                50      85     295     210      NA            NA
+## 4           NA                NA      NA      NA      NA      NA          97.6
+## 5           30                48      83     260     230     120          98.6
+## 6           23                42      74     220     140     100          96.3
+## 7           NA                42     104     220     185      90          92.3
+## 8           28                49      75     290     210      NA          95.4
+## 9           26                45      85     280     200     120          94.8
+## 10          NA                41      72      NA     185     110          96.0
+##    pulse_per_min respiration_per_min eye_condition teeth_condition
+## 1             68                  12        Normal            Worn
+## 2            120                  NA        Normal            Good
+## 3             68                  80        Normal            Good
+## 4             NA                  NA        Normal            Good
+## 5             52                  48        Normal            Good
+## 6             72                  84        Normal            Good
+## 7             NA                  44        Normal            Good
+## 8             NA                  76        Normal       Broken M1
+## 9             52                  40        Normal            Good
+## 10            40                  36        Normal            Good</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="relational-database.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(skunks_db, <span class="st">&quot;SELECT * FROM biological_samples LIMIT 10;&quot;</span>) <span class="co">#samples table</span></span></code></pre></div>
+<pre><code>##    sample_id skunk_id      date hair ear_snip scat parasites
+## 1          1  01-20-F 4/19/2020    Y        Y    N         N
+## 2          2  02-20-M 4/20/2020    Y        Y    N         N
+## 3          3  01-21-M 3/20/2021    Y        Y    N         N
+## 4          4  01-21-M 3/25/2021    N        Y    Y         N
+## 5          5  02-21-M 3/23/2021    Y        Y    N         Y
+## 6          6  03-21-F 3/25/2021    Y        Y    N         Y
+## 7          7  03-21-F  5/6/2021    N        N    N         N
+## 8          8  04-21-M 3/27/2021    Y        Y    N         N
+## 9          9  05-21-M  4/3/2021    Y        Y    Y         Y
+## 10        10  06-21-F  4/3/2021    Y        Y    N         N</code></pre>
 
 </div>
 </div>

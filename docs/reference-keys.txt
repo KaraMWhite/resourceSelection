@@ -1,3 +1,8 @@
 fig:image
 relational-database
-database-design
+designing-a-database
+creating-the-database
+creating-tables
+reading-in-csvs
+populating-database-tables
+querying-the-database
