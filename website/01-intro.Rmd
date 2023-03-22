@@ -10,7 +10,7 @@ database. Primary keys are in **bold** and foreign keys are in *italics*.
 
 ```{r design, fig.align='center', out.width='100%', eval = TRUE, echo = FALSE}
 
-knitr::include_graphics("db_outline.jpg")
+knitr::include_graphics("../docs/db_outline.jpg")
 
 ```
 
@@ -181,7 +181,8 @@ capture_sites <- read.csv("~/PhD/resourceSelection/data/capture_sites.csv", stri
 captures <- read.csv("~/PhD/resourceSelection/data/captures.csv", stringsAsFactors = F)
 biometrics <- read.csv("~/PhD/resourceSelection/data/Biometrics.csv", stringsAsFactors = F)
 biological_samples <- read.csv("~/PhD/resourceSelection/data/samples.csv", stringsAsFactors = F)
-
+tags <- read.csv("~/PhD/resourceSelection/data/tags.csv", stringsAsFactors = F)
+deployments <- read.csv("~/PhD/resourceSelection/data/deployments.csv", stringsAsFactors = F)
 ```
 
 Before I populate the tables I will check to make sure column names match the ones in the tables I created and rearrange columns so that they appear in the right order
@@ -211,6 +212,17 @@ biological_samples$sample_id <- 1:nrow(biological_samples) #add column
 head(biological_samples, 2) #check column added
 biological_samples <- biological_samples %>% select(sample_id, everything()) #reorder columns
 head(biological_samples, 2) #check columns are re-ordered
+
+tags$tag_id <- 1:nrow(tags)
+head(tags, 2) #check column added
+tags <- tags %>% select (tag_id, everything()) #reorder columns
+head(tags, 2) #check columns are re-ordered
+
+deployments$deployment_id <- 1:nrow(deployments)
+head(deployments, 2) #check column added
+deployments <- deployments %>% select (deployment_id, everything()) #reorder columns
+head(deployments, 2) #check columns are re-ordered
+
 ```
 ## Populating database tables
 
@@ -229,8 +241,14 @@ dbWriteTable(skunks_db, "captures", captures, append = T)
 #add data from csv into biometrics table
 dbWriteTable(skunks_db, "biometrics", biometrics, append = T)
 
-##add data from csv into biological samples table
+#add data from csv into biological samples table
 dbWriteTable(skunks_db, "biological_samples", biological_samples, append = T)
+
+#add data from csv into biological samples table
+dbWriteTable(skunks_db, "tags", tags, append = T)
+
+#add data from csv into biological samples table
+dbWriteTable(skunks_db, "deployments", deployments, append = T)
 
 ```
 
@@ -255,7 +273,15 @@ dbGetQuery(skunks_db, "SELECT * FROM captures LIMIT 10;") #captures table
 dbGetQuery(skunks_db, "SELECT * FROM biometrics LIMIT 10;") #biometrics table
 ```
 
-```{r}
+```{r samples query, eval = TRUE, echo = TRUE}
 dbGetQuery(skunks_db, "SELECT * FROM biological_samples LIMIT 10;") #samples table
+```
+
+```{r tags query, eval = TRUE, echo = TRUE}
+dbGetQuery(skunks_db, "SELECT * FROM tags LIMIT 10;") #tags table
+```
+
+```{r deployments query, eval = TRUE, echo = TRUE}
+dbGetQuery(skunks_db, "SELECT * FROM deployments LIMIT 10;") #deployments table
 ```
 

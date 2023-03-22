@@ -31,4 +31,4 @@ Long-term harvest trends of spotted skunks east of the Rocky Mountains indicated
 
 Perceived population concerns led to a petition to consider plains spotted skunks under the U.S. Endangered Species Act and the United States Fish and Wildlife Service (USFWS) conducted a species status assessment of the plains spotted skunk. However, there is a paucity of information about plains spotted skunks to inform conservation decisions and efforts. Few studies have investigated plains spotted skunks, and even fewer have focused on the northern portion of the species range. 
 
-Follow along with me as I attempt to address these knowledge gaps and inform conservation and management of plains spotted skunks in South Dakota!
+Follow along with me as I explore my data in partial fulfillment of the requirements of RDS 2023 course, and as I attempt to address knowledge gaps and inform conservation and management of plains spotted skunks in South Dakota!
