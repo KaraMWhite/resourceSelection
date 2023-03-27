@@ -10,7 +10,7 @@ database. Primary keys are in **bold** and foreign keys are in *italics*.
 
 ```{r design, fig.align='center', out.width='100%', eval = TRUE, echo = FALSE}
 
-knitr::include_graphics("db_outline.jpg")
+knitr::include_graphics("C:/Users/Kara.White/Documents/PhD/resourceSelection/docs/db_outline.jpg")
 
 ```
 
