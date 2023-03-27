@@ -8,3 +8,5 @@ figures/
 .Rproj.user/
 .Rhistory
 images/
+!docs/*.jpeg
+!website/*.jpeg
