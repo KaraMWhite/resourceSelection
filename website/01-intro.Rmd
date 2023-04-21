@@ -170,6 +170,20 @@ FOREIGN KEY(collar_id) REFERENCES tags(collar_id)
 );")
 ```
 
+```{r reports, eval= FALSE, echo = TRUE}
+# create spotted skunk observation table
+dbExecute(skunks_db, "Create Table observations (
+          obs_id INTEGER PRIMARY KEY AUTOINCREMENT,
+          Species char(9),
+          Year text(4),
+          County varchar(15),
+          Latitude double,
+          Longitude double,
+          Source varchar(20)
+) ")
+
+```
+
 ## Reading in CSVs
 
 Now that I have finished creating all of the tables as shown in 1.1 I can load the data that I will use to populate the tables
@@ -183,6 +197,7 @@ biometrics <- read.csv("~/PhD/resourceSelection/data/Biometrics.csv", stringsAsF
 biological_samples <- read.csv("~/PhD/resourceSelection/data/samples.csv", stringsAsFactors = F)
 tags <- read.csv("~/PhD/resourceSelection/data/tags.csv", stringsAsFactors = F)
 deployments <- read.csv("~/PhD/resourceSelection/data/deployments.csv", stringsAsFactors = F)
+observations <- read.csv("~/PhD/resourceSelection/website/SPPU_SDLocations.csv", stringsAsFactors = F)
 ```
 
 Before I populate the tables I will check to make sure column names match the ones in the tables I created and rearrange columns so that they appear in the right order
@@ -223,6 +238,9 @@ head(deployments, 2) #check column added
 deployments <- deployments %>% select (deployment_id, everything()) #reorder columns
 head(deployments, 2) #check columns are re-ordered
 
+observations$obs_id <- 1:nrow(observations) # add column
+head(observations, 2)
+observations <- observations %>% select (obs_id, everything()) #reorder columns
 ```
 ## Populating database tables
 
@@ -250,6 +268,8 @@ dbWriteTable(skunks_db, "tags", tags, append = T)
 #add data from csv into biological samples table
 dbWriteTable(skunks_db, "deployments", deployments, append = T)
 
+#add data from csv into reports table
+dbWriteTable(skunks_db, "observations", observations, append = T)
 ```
 
 ## Querying the database
@@ -283,5 +303,9 @@ dbGetQuery(skunks_db, "SELECT * FROM tags LIMIT 10;") #tags table
 
 ```{r deployments query, eval = TRUE, echo = TRUE}
 dbGetQuery(skunks_db, "SELECT * FROM deployments LIMIT 10;") #deployments table
+```
+```{r reports query, eval = TRUE, echo = FALSE}
+dbGetQuery(skunks_db, "SELECT * FROM reports LIMIT 10") # reports table
+
 ```
 

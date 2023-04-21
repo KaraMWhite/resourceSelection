@@ -1,4 +1,5 @@
 fig:image
+fig:flyer
 relational-database
 designing-a-database
 creating-the-database
@@ -6,3 +7,9 @@ creating-tables
 reading-in-csvs
 populating-database-tables
 querying-the-database
+plains-spotted-skunk-distribution-in-south-dakota
+spotted-skunk-locations-across-the-state
+sources-of-reported-spotted-skunk-observations
+contemporary-data-and-geographical-uncertainty
+analytical-decision-making
+climate-data-exploration

@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Plains spotted skunks in South Dakota</title>
   <meta name="description" content="<p>This is my initial attempt using the bookdown package to write a book website
-exploring spotted skunk resource selection data in South Dakota as part of the
-RDS 2023 class requirements..
+exploring spotted skunk data in South Dakota as part of the
+RDS 2023 course requirements.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
@@ -16,8 +16,8 @@ set in the _output.yml file.</p>" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is my initial attempt using the bookdown package to write a book website
-exploring spotted skunk resource selection data in South Dakota as part of the
-RDS 2023 class requirements..
+exploring spotted skunk data in South Dakota as part of the
+RDS 2023 course requirements.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
@@ -26,8 +26,8 @@ set in the _output.yml file.</p>" />
   <meta name="twitter:title" content="Plains spotted skunks in South Dakota" />
   
   <meta name="twitter:description" content="<p>This is my initial attempt using the bookdown package to write a book website
-exploring spotted skunk resource selection data in South Dakota as part of the
-RDS 2023 class requirements..
+exploring spotted skunk data in South Dakota as part of the
+RDS 2023 course requirements.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   
@@ -35,7 +35,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Kara White" />
 
 
-<meta name="date" content="2023-03-27" />
+<meta name="date" content="2023-04-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -158,6 +158,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="relational-database.html"><a href="relational-database.html#populating-database-tables"><i class="fa fa-check"></i><b>1.5</b> Populating database tables</a></li>
 <li class="chapter" data-level="1.6" data-path="relational-database.html"><a href="relational-database.html#querying-the-database"><i class="fa fa-check"></i><b>1.6</b> Querying the database</a></li>
 </ul></li>
+<li class="chapter" data-level="2" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html"><i class="fa fa-check"></i><b>2</b> Plains Spotted Skunk Distribution in South Dakota</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#spotted-skunk-locations-across-the-state"><i class="fa fa-check"></i><b>2.1</b> Spotted skunk locations across the state</a></li>
+<li class="chapter" data-level="2.2" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#sources-of-reported-spotted-skunk-observations"><i class="fa fa-check"></i><b>2.2</b> Sources of reported spotted skunk observations</a></li>
+<li class="chapter" data-level="2.3" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#contemporary-data-and-geographical-uncertainty"><i class="fa fa-check"></i><b>2.3</b> Contemporary Data and geographical uncertainty</a></li>
+<li class="chapter" data-level="2.4" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#analytical-decision-making"><i class="fa fa-check"></i><b>2.4</b> Analytical Decision-Making</a></li>
+<li class="chapter" data-level="2.5" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#climate-data-exploration"><i class="fa fa-check"></i><b>2.5</b> Climate data exploration</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -181,11 +189,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Plains spotted skunks in South Dakota</h1>
 <p class="author"><em>Kara White</em></p>
-<p class="date"><em>2023-03-27</em></p>
+<p class="date"><em>2023-04-21</em></p>
 </div>
 <div id="overview" class="section level1 unnumbered hasAnchor">
 <h1>Overview<a href="index.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The plains spotted skunk is a small (i.e., ≤1 kg) carnivore native to central North America with a historical distribution extending from the southern plains of Manitoba, Canada to the coastal plains of Tamaulipas, Mexico, and east-west from the Mississippi River to the Rocky Mountains.</p>
+<p>The plains spotted skunk is a small (i.e., ≤1 kg) carnivore native to central North America with a historical distribution extending from the southern plains
+of Manitoba, Canada to the coastal plains of Tamaulipas, Mexico, and east-west from the Mississippi River to the Rocky Mountains.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:image"></span>
 <img src="spotskunk.jpg" alt="photo by Danni Brosend" width="100%" />
 <p class="caption">
@@ -194,7 +203,8 @@ Figure 0.1: photo by Danni Brosend
 </div>
 <p>Long-term harvest trends of spotted skunks east of the Rocky Mountains indicated a &gt;90% reduction in populations. Causes for the reduction have not been identified, but intensified land-use practices that reduce habitat via agricultural expansion, decrease prey abundances via widespread use of agricultural pesticides, and increase competition via altered predator communities have been hypothesized.</p>
 <p>Perceived population concerns led to a petition to consider plains spotted skunks under the U.S. Endangered Species Act and the United States Fish and Wildlife Service (USFWS) conducted a species status assessment of the plains spotted skunk. However, there is a paucity of information about plains spotted skunks to inform conservation decisions and efforts. Few studies have investigated plains spotted skunks, and even fewer have focused on the northern portion of the species range.</p>
-<p>Follow along with me as I explore my data in partial fulfillment of the requirements of RDS 2023 course, and as I attempt to address knowledge gaps and inform conservation and management of plains spotted skunks in South Dakota!</p>
+<p>Follow along with me as I explore spotted skunk data in partial fulfillment of
+the requirements of RDS 2023 course, and as I attempt to address knowledge gaps and inform conservation and management of plains spotted skunks in South Dakota!</p>
 
 </div>
             </section>

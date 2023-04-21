@@ -1,0 +1,339 @@
+# Plains Spotted Skunk Distribution in South Dakota
+
+```{r library, eval=TRUE, echo=FALSE, message=FALSE}
+library(DBI)
+library(tidyverse)
+```
+
+```{r flyer, fig.cap = "A 'wanted' flyer created to solicit spotted skunk observations", fig.align='center', out.width='100%', eval = TRUE, echo = FALSE}
+
+knitr::include_graphics("skunk_flyer.png")
+
+```
+I conducted a widespread campaign to solicit plains spotted skunk observations 
+in South Dakota. I encouraged respondents to report plains spotted skunk 
+observations via phone, email, or online through an iNaturalist project page
+that we created to aggregate online reports. Targeted respondents included 
+state natural resource managers, academic institutions, furbearer license 
+holders and state trapper association members, agricultural landowners, and 
+members of various hunting and wildlife-oriented social groups. Information 
+appeared in multiple news publications throughout the state, including in print,
+online, and over the radio. I also queried the [VertNet] (http://vertnet.org/) 
+and [Global Biodiversity Information Facility (GBIF)] (https://www.gbif.org/) 
+databases, reviewed published and ongoing wildlife research in South Dakota, 
+and accessed data maintained by the South Dakota Game Fish and Parks (SDGFP) 
+Natural Heritage Program. Finally, I reviewed information from the South Dakota 
+Department of Transportation’s roadkill image database for all roadkill tagged 
+as a “small animal.”
+
+I compiled all observations into a table I named "obs". How many observations 
+did I collect?
+```{r table, eval=TRUE, echo=FALSE}
+obs <- dbGetQuery(skunks_db, "SELECT * FROM observations;")
+```
+
+```{r n.reports, eval=TRUE, echo=TRUE}
+
+obs %>% 
+summarise(obs_id = n())
+```
+I collected 186 records. Let's see how those records vary by county.
+
+## Spotted skunk locations across the state
+```{r pathways, eval = TRUE, echo=FALSE}
+path.root <- "C:/Users/Kara.White/OneDrive - South Dakota State University - SDSU/Dissertation - SDSU/SDHM"
+path.skunk <- paste(path.root, "/sdhmR-V2022.1/spottedskunk", sep = "")
+```
+
+```{r shapefile, eval = TRUE, echo = FALSE, warning=FALSE, message=FALSE}
+library(sf)
+setwd(path.skunk)
+SDak <- sf::st_read(
+    './SDCountyBoundaries',
+    'County_Boundaries__Census_2010')
+# have not been able to get the ../ path functionality to work.
+
+obs_sf <- st_as_sf(obs, coords = c("Longitude", "Latitude"), crs = st_crs(SDak))
+```
+
+```{r occurrences by county}
+
+SDak %>% 
+  st_join(obs_sf) %>% 
+  group_by(NAME) %>% 
+  summarize(n_county = n()) %>% 
+  ggplot() +
+  geom_sf(aes(fill = n_county)) +
+  scale_fill_viridis_c(name = "Number of observations", option = "magma") +
+  labs(title = "Spotted skunk occurrences by county") +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+  
+```
+
+We can see that most reported spotted skunk observations were clustered in
+eastern South Dakota, and that one county had over 50 observations! That's 
+because one trapper provided a lot of data.
+
+## Sources of reported spotted skunk observations
+
+Let's take a look at some of the data providers
+```{r sources, warning=FALSE}
+obs %>% 
+  count(Source) %>% 
+  mutate(Source = reorder(Source, n)) %>%
+  ggplot(aes(x = Source, y = n, fill = Source)) +
+  geom_bar(stat = 'identity') +
+  coord_flip() +
+  labs(title = "Reported spotted skunk observations by source", x = "", 
+       y = "Count", 
+       fill = "Source") +
+  guides(fill = FALSE) +
+  theme_light() 
+  
+```
+
+We can see that trappers provides the majority of spotted skunk observations, 
+followed by databases, social media, and prior research.
+
+## Contemporary Data and geographical uncertainty
+
+Some of those records were historical and do not 
+match contemporary predictor data which is available from 1970. How many reports
+do I have that occurred before 1970?
+```{r years, eval=TRUE, echo = TRUE}
+obs %>% 
+  tally(Year <= 1970)
+
+```
+I have 6 records before 1970, which I want to omit before analyses. We also had 
+some locational uncertainty because some trappers provided locations to the 
+nearest 1/4 section of a particular township and range rather than specific 
+coordinates. I will randomly exclude one location from a pair of records that
+occurred closer than the estimated locational threshold to account for potential
+duplication of observations and to reduce the effects of spatial autocorrelation. 
+```{r rarify}
+obs_thin <- obs %>% 
+  filter(Year >= 1970 & Year <= 2022) %>% 
+  spThin::thin(lat.col = "Latitude", 
+               long.col = "Longitude", 
+               spec.col = "Species", 
+               thin.par = 3, 
+               reps = 1, 
+               locs.thinned.list.return = T,
+               write.files = F) 
+  
+```
+After spatial thinning we have 129 spotted skunk observations that I will use
+for analyses. 
+
+## Analytical Decision-Making
+
+Most of the spotted skunk observations are in eastern 
+South Dakota. Should I should omit the far western points and 
+concentrate my analyses on the eastern part of the state, or retain a statewide
+analysis?
+
+Furthermore, while species distribution modeling require presence-only datasets, 
+Elith et al. (2006) found that presence-absence models performed better than 
+presence-only models, so I want to incorporate pseudo-absences (PsA) into my 
+dataset. 
+
+My next step is to generate pseudo-absence (PsA) locations, but there is no 
+general consensus on how many to use. 
+
+Well, since the literature doesn't provide clear guidelines, I want to 
+explore how various ratios of P:PSA to inform decision making.
+
+Creating a modeling domain and generating PsA's requires a lot of background 
+code so I went ahead and created two different modelling domains with two 
+different ratios of P:PsA. I've included the code to see what the various 
+combinations look like:
+
+```{r datasets, eval = TRUE, echo = FALSE}
+library(sf)
+#read in datasets
+setwd(path.skunk)
+  obs.10xPPsA <- read.csv("obs_10xPPsA.csv")
+  Eobs.10xPPsA <- read.csv("Eobs_10xPPsA.csv")
+  Eobs.100xPPsA <- read.csv("Eobs_100xPPsA.csv")
+  obs.100xPPsA <- read.csv("obs_100xPPsA.csv")
+
+prj.aeaN83 <- "+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=23 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs"
+prj.wgs84 <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+  
+# Create shapefiles
+obs.100xPPsASF <- st_as_sf(obs.100xPPsA, coords = c("cell.aea_x", "cell.aea_y"),
+                    crs = prj.aeaN83)
+obs.10xPPsASF <- st_as_sf(obs.10xPPsA, coords = c("cell.aea_x", "cell.aea_y"),
+                    crs = prj.aeaN83)
+Eobs.10xPPsASF <- st_as_sf(Eobs.10xPPsA, coords = c("cell.aea_x", "cell.aea_y"),
+                    crs = prj.aeaN83)
+Eobs.100xPPsASF <- st_as_sf(Eobs.100xPPsA, coords = c("cell.aea_x", "cell.aea_y"),
+                    crs = prj.aeaN83)
+
+path.dataset <- paste(path.root, "/sdhmR-V2022.1/spottedskunk/datasets", sep = "")
+setwd(path.dataset)
+obs_E <- read.csv("obs1970_2022_3km_EastSD.csv") 
+obs_E_sf <- st_as_sf(obs_E, coords = c( "Longitude", "Latitude"),  
+                     crs = prj.wgs84, remove = F)
+
+# create modeling domains
+  obs_aea <- st_transform(obs_sf, crs = prj.aeaN83) #convert crs 
+  obs_E_aea <- st_transform(obs_E_sf, crs = prj.aeaN83)
+
+# buffer extent by 20km and merge overlapping polygons
+  obs_bufpts20kmSF <- st_union(st_buffer(obs_aea, dist = 20000))
+
+# Create bounding box around buffered pts 
+  obs_bbox20kmSF <- st_as_sfc(st_bbox(obs_bufpts20kmSF)) 
+  
+# buffer easter extent by 20km and merge overlapping polygons
+  Eobs_bufpts20kmSF <- st_union(st_buffer(obs_E_aea, dist = 20000))
+
+# Create bounding box around buffered pts 
+  Eobs_bbox20kmSF <- st_as_sfc(st_bbox(Eobs_bufpts20kmSF)) 
+
+```
+
+```{r plots}
+
+p1 <-  ggplot() +
+  geom_sf(data = obs_bbox20kmSF, fill = "white", color = "black") +
+  geom_sf(data = obs.10xPPsASF, aes(color = as.factor(pres)), size = 0.5) +
+  geom_sf(data = SDak, fill = NA) +
+  labs(color = "Presence", y = "10:1 P:PsA", title = "All of South Dakota") +
+  scale_color_viridis_d(option = "C") +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank()) +
+  guides(color = FALSE)
+
+p2 <- ggplot() +
+  geom_sf(data = obs_bbox20kmSF, fill = "white", color = "black") +
+  geom_sf(data = obs.100xPPsASF, aes(color = as.factor(pres)), size = 0.5) +
+  geom_sf(data = SDak, fill = NA) +
+  labs(color = "Presence", y = "100:1 P:PsA") +
+  scale_color_viridis_d(option = "C") +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank()) +
+  guides(color = FALSE)
+
+p3 <- ggplot() +
+  geom_sf(data = Eobs_bbox20kmSF, fill = "white", color = "black") +
+  geom_sf(data = Eobs.10xPPsASF, aes(color = as.factor(pres)), size = 0.5) +
+  geom_sf(data = SDak, fill = NA) +
+  labs(color = "Presence", title = "Eastern South Dakota Only") +
+  scale_color_viridis_d(option = "C") +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank())
+
+p4 <- ggplot() +
+  geom_sf(data = Eobs_bbox20kmSF, fill = "white", color = "black") +
+  geom_sf(data = Eobs.100xPPsASF, aes(color = as.factor(pres)), size = 0.5) +
+  geom_sf(data = SDak, fill = NA) +
+  labs(color = "Presence") +
+  scale_color_viridis_d(option = "C") +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank())
+
+library(patchwork)
+(p1 | p3) / (p2 | p4)
+```
+
+Now that I have my 4 datasets I am interested in how presences and 
+pseudo-absences relate to various climate variables. In order to visualize 
+these relationships, I had to extract values from climate rasters 
+and match them to each presence and pseudo-absence location.
+
+## Climate data exploration
+
+[WorldClim](https://www.worldclim.org/data/index.html) provides 
+data for various temperature and precipitation measures and elevation.
+```{r climate data, eval=TRUE, echo=FALSE}
+setwd(path.skunk)
+PPsA10x_climate <- read.csv("PPsA10x_climate.csv")
+PPsA100x_climate <- read.csv("PPsA100x_climate.csv")
+PPsA10xE_climate <- read.csv("PPsA10xE_climate.csv")
+PPsA100xE_climate <- read.csv("PPsA100xE_climate.csv")
+
+```
+Let's take a look at how some of the climate predictors differ between 
+ratios of P:PsAs and modeling domains. 
+
+But, rather than write code to makes plots for each of the four dataframes 
+similar to how I did so above, this time I will write a function for boxplot 
+comparisons across dataframes.
+```{r function}
+plots <- function (variable, y_label) {
+  par(mfrow = c(1, 4))
+  boxplot(PPsA10x_climate[, variable] ~ PPsA10x_climate$pres, 
+          xlab = "Absence | Presence", 
+          ylab = y_label, main = "10x PPsA")
+  boxplot(PPsA100x_climate[, variable] ~ PPsA100x_climate$pres, 
+          xlab = "Absence | Presence", 
+          ylab = "", main = "100xPPsA")
+  boxplot(PPsA10xE_climate[, variable] ~ PPsA10xE_climate$pres, 
+          xlab = "Absence | Presence", 
+          ylab = "", main = "10x PPsA East")
+  boxplot(PPsA100xE_climate[, variable] ~ PPsA100xE_climate$pres, 
+          xlab = "Absence | Presence", 
+          ylab = "", main = "100x PPsA East")
+  par(mfrow = c(1,1))
+}
+```
+
+Now I'll use my function called "plots" to make comparisons across dataframes
+with various climate variables.
+
+First, let's look at minimum temperature of the coldest month
+```{r temp}
+plots(variable = "wc2.1_2.5m_bio_11", "Temp Coldest Mo.")
+```
+
+From the graph we can see that the average coldest temperature for presence 
+locations is slightly colder than the average coldest temperature of 
+pseudo-absences. But, when we consider only eastern South Dakota we see that the
+relationship switches. Now, the average coldest temperature of presence locations
+is slightly warmer than the average coldest temperature of pseudo-absence 
+locations.
+
+Let's look at annual precipitation
+```{r}
+plots(variable = "wc2.1_2.5m_bio_12", "Annual Precip" )
+```
+
+Here we can see that when considering only eastern South Dakota, the average
+precipitation values for both presences and absences are greater than the
+average precipitation values of the entire state. This makes sense because 
+eastern South Dakota generally receives much more rain than the west.
+
+Finally, let's take a look at elevation
+```{r}
+plots(variable = "wc2.1_2.5m_elev", "Elevation")
+```
+
+Here we see a similar pattern that we observed in the previous two graphs,
+but we also notice there is considerably more variation across values for the 
+dataframes that incorporate locations across the state. In this graph, and the
+previous graphs we notice that the presence and absence response is similar
+across the two ratios of P:PsA. Maybe that's why there is no clear consensus
+on the optimal ratio to use!
+
+Finally, we can standardize the values of all 20 climate and elevation 
+predictors and plot them together to see differences. I'll use the 10:1 P:PsA 
+for all of South Dakota.
+```{r scaled}
+
+data.frame(cbind(PPsA10x_climate[, 3, drop = F], 
+                              scale(PPsA10x_climate[ , 5:24]))) %>% 
+pivot_longer(cols = starts_with("wc"), names_to = "variable", values_to = "value") %>% 
+ggplot(aes(x = factor(pres), y = value, color = variable)) +  
+  theme(legend.position = "none", axis.text.x = element_text(angle = 90), 
+        plot.title = element_text(size = 20)) +
+  labs(title = "") +
+  ylab("Scaled Values") + xlab("") +
+  geom_boxplot() +
+facet_wrap(~variable, scale = "free")
+```
+

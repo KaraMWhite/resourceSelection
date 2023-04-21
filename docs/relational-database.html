@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Relational Database | Plains spotted skunks in South Dakota</title>
   <meta name="description" content="<p>This is my initial attempt using the bookdown package to write a book website
-exploring spotted skunk resource selection data in South Dakota as part of the
-RDS 2023 class requirements..
+exploring spotted skunk data in South Dakota as part of the
+RDS 2023 course requirements.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
@@ -16,8 +16,8 @@ set in the _output.yml file.</p>" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is my initial attempt using the bookdown package to write a book website
-exploring spotted skunk resource selection data in South Dakota as part of the
-RDS 2023 class requirements..
+exploring spotted skunk data in South Dakota as part of the
+RDS 2023 course requirements.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
@@ -26,8 +26,8 @@ set in the _output.yml file.</p>" />
   <meta name="twitter:title" content="Chapter 1 Relational Database | Plains spotted skunks in South Dakota" />
   
   <meta name="twitter:description" content="<p>This is my initial attempt using the bookdown package to write a book website
-exploring spotted skunk resource selection data in South Dakota as part of the
-RDS 2023 class requirements..
+exploring spotted skunk data in South Dakota as part of the
+RDS 2023 course requirements.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   
@@ -35,7 +35,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Kara White" />
 
 
-<meta name="date" content="2023-03-27" />
+<meta name="date" content="2023-04-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -43,7 +43,7 @@ set in the _output.yml file.</p>" />
   
   
 <link rel="prev" href="index.html"/>
-
+<link rel="next" href="plains-spotted-skunk-distribution-in-south-dakota.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -157,6 +157,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4" data-path="relational-database.html"><a href="relational-database.html#reading-in-csvs"><i class="fa fa-check"></i><b>1.4</b> Reading in CSVs</a></li>
 <li class="chapter" data-level="1.5" data-path="relational-database.html"><a href="relational-database.html#populating-database-tables"><i class="fa fa-check"></i><b>1.5</b> Populating database tables</a></li>
 <li class="chapter" data-level="1.6" data-path="relational-database.html"><a href="relational-database.html#querying-the-database"><i class="fa fa-check"></i><b>1.6</b> Querying the database</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html"><i class="fa fa-check"></i><b>2</b> Plains Spotted Skunk Distribution in South Dakota</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#spotted-skunk-locations-across-the-state"><i class="fa fa-check"></i><b>2.1</b> Spotted skunk locations across the state</a></li>
+<li class="chapter" data-level="2.2" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#sources-of-reported-spotted-skunk-observations"><i class="fa fa-check"></i><b>2.2</b> Sources of reported spotted skunk observations</a></li>
+<li class="chapter" data-level="2.3" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#contemporary-data-and-geographical-uncertainty"><i class="fa fa-check"></i><b>2.3</b> Contemporary Data and geographical uncertainty</a></li>
+<li class="chapter" data-level="2.4" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#analytical-decision-making"><i class="fa fa-check"></i><b>2.4</b> Analytical Decision-Making</a></li>
+<li class="chapter" data-level="2.5" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#climate-data-exploration"><i class="fa fa-check"></i><b>2.5</b> Climate data exploration</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -307,34 +315,45 @@ database. Primary keys are in <strong>bold</strong> and foreign keys are in <em>
 <span id="cb11-10"><a href="relational-database.html#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="st">FOREIGN KEY (skunk_id) REFERENCES skunks(skunk_id)</span></span>
 <span id="cb11-11"><a href="relational-database.html#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="st">FOREIGN KEY(collar_id) REFERENCES tags(collar_id)</span></span>
 <span id="cb11-12"><a href="relational-database.html#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="st">);&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="relational-database.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create spotted skunk observation table</span></span>
+<span id="cb12-2"><a href="relational-database.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(skunks_db, <span class="st">&quot;Create Table observations (</span></span>
+<span id="cb12-3"><a href="relational-database.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="st">          obs_id INTEGER PRIMARY KEY AUTOINCREMENT,</span></span>
+<span id="cb12-4"><a href="relational-database.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="st">          Species char(9),</span></span>
+<span id="cb12-5"><a href="relational-database.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="st">          Year text(4),</span></span>
+<span id="cb12-6"><a href="relational-database.html#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="st">          County varchar(15),</span></span>
+<span id="cb12-7"><a href="relational-database.html#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="st">          Latitude double,</span></span>
+<span id="cb12-8"><a href="relational-database.html#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="st">          Longitude double,</span></span>
+<span id="cb12-9"><a href="relational-database.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="st">          Source varchar(20)</span></span>
+<span id="cb12-10"><a href="relational-database.html#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="st">) &quot;</span>)</span></code></pre></div>
 </div>
 <div id="reading-in-csvs" class="section level2 hasAnchor" number="1.4">
 <h2><span class="header-section-number">1.4</span> Reading in CSVs<a href="relational-database.html#reading-in-csvs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now that I have finished creating all of the tables as shown in 1.1 I can load the data that I will use to populate the tables</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="relational-database.html#cb12-1" aria-hidden="true" tabindex="-1"></a>skunks <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/data/skunks.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span>
-<span id="cb12-2"><a href="relational-database.html#cb12-2" aria-hidden="true" tabindex="-1"></a>capture_sites <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/data/capture_sites.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span>
-<span id="cb12-3"><a href="relational-database.html#cb12-3" aria-hidden="true" tabindex="-1"></a>captures <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/data/captures.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span>
-<span id="cb12-4"><a href="relational-database.html#cb12-4" aria-hidden="true" tabindex="-1"></a>biometrics <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/data/Biometrics.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span>
-<span id="cb12-5"><a href="relational-database.html#cb12-5" aria-hidden="true" tabindex="-1"></a>biological_samples <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/data/samples.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span>
-<span id="cb12-6"><a href="relational-database.html#cb12-6" aria-hidden="true" tabindex="-1"></a>tags <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/data/tags.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span>
-<span id="cb12-7"><a href="relational-database.html#cb12-7" aria-hidden="true" tabindex="-1"></a>deployments <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/data/deployments.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="relational-database.html#cb13-1" aria-hidden="true" tabindex="-1"></a>skunks <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/data/skunks.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span>
+<span id="cb13-2"><a href="relational-database.html#cb13-2" aria-hidden="true" tabindex="-1"></a>capture_sites <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/data/capture_sites.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span>
+<span id="cb13-3"><a href="relational-database.html#cb13-3" aria-hidden="true" tabindex="-1"></a>captures <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/data/captures.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span>
+<span id="cb13-4"><a href="relational-database.html#cb13-4" aria-hidden="true" tabindex="-1"></a>biometrics <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/data/Biometrics.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span>
+<span id="cb13-5"><a href="relational-database.html#cb13-5" aria-hidden="true" tabindex="-1"></a>biological_samples <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/data/samples.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span>
+<span id="cb13-6"><a href="relational-database.html#cb13-6" aria-hidden="true" tabindex="-1"></a>tags <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/data/tags.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span>
+<span id="cb13-7"><a href="relational-database.html#cb13-7" aria-hidden="true" tabindex="-1"></a>deployments <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/data/deployments.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span>
+<span id="cb13-8"><a href="relational-database.html#cb13-8" aria-hidden="true" tabindex="-1"></a>observations <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/PhD/resourceSelection/website/SPPU_SDLocations.csv&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span></code></pre></div>
 <p>Before I populate the tables I will check to make sure column names match the ones in the tables I created and rearrange columns so that they appear in the right order</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="relational-database.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(skunks) </span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="relational-database.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(skunks) </span></code></pre></div>
 <pre><code>## [1] &quot;skunk_id&quot;  &quot;sex&quot;       &quot;age_class&quot;</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="relational-database.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(capture_sites)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="relational-database.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(capture_sites)</span></code></pre></div>
 <pre><code>## [1] &quot;site&quot;  &quot;utm_x&quot; &quot;utm_y&quot;</code></pre>
 <p>The first two CSVs have columns with correct names and in the correct order, but I will need to add auto-incremental columns and then re-order the columns for the remaining CSVs.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="relational-database.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb17-2"><a href="relational-database.html#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="relational-database.html#cb17-3" aria-hidden="true" tabindex="-1"></a>captures<span class="sc">$</span>capture_id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(captures) <span class="co">#add column</span></span>
-<span id="cb17-4"><a href="relational-database.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(captures, <span class="dv">2</span>) <span class="co">#check column added</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="relational-database.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb18-2"><a href="relational-database.html#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="relational-database.html#cb18-3" aria-hidden="true" tabindex="-1"></a>captures<span class="sc">$</span>capture_id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(captures) <span class="co">#add column</span></span>
+<span id="cb18-4"><a href="relational-database.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(captures, <span class="dv">2</span>) <span class="co">#check column added</span></span></code></pre></div>
 <pre><code>##   skunk_id      date    site capture_id
 ## 1  01-20-F 4/18/2020 F006-20          1
 ## 2  02-20-M 4/19/2020 F003-20          2</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="relational-database.html#cb19-1" aria-hidden="true" tabindex="-1"></a>captures <span class="ot">&lt;-</span> captures[, <span class="fu">c</span>(<span class="st">&quot;capture_id&quot;</span>, <span class="st">&quot;skunk_id&quot;</span>, <span class="st">&quot;date&quot;</span>, <span class="st">&quot;site&quot;</span>)] <span class="co">#reorder columns</span></span>
-<span id="cb19-2"><a href="relational-database.html#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="relational-database.html#cb19-3" aria-hidden="true" tabindex="-1"></a>biometrics<span class="sc">$</span>measurement_id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(biometrics) <span class="co">#add column</span></span>
-<span id="cb19-4"><a href="relational-database.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biometrics, <span class="dv">2</span>) <span class="co">#check column added</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="relational-database.html#cb20-1" aria-hidden="true" tabindex="-1"></a>captures <span class="ot">&lt;-</span> captures[, <span class="fu">c</span>(<span class="st">&quot;capture_id&quot;</span>, <span class="st">&quot;skunk_id&quot;</span>, <span class="st">&quot;date&quot;</span>, <span class="st">&quot;site&quot;</span>)] <span class="co">#reorder columns</span></span>
+<span id="cb20-2"><a href="relational-database.html#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="relational-database.html#cb20-3" aria-hidden="true" tabindex="-1"></a>biometrics<span class="sc">$</span>measurement_id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(biometrics) <span class="co">#add column</span></span>
+<span id="cb20-4"><a href="relational-database.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biometrics, <span class="dv">2</span>) <span class="co">#check column added</span></span></code></pre></div>
 <pre><code>##   skunk_id      date reproductive_status weight_g ear_nose_mm left_ear_mm
 ## 1  02-20-M 4/20/2022    Distended testes      800          27          20
 ## 2  01-20-F 4/19/2022         Not active       630          24          27
@@ -344,8 +363,8 @@ database. Primary keys are in <strong>bold</strong> and foreign keys are in <em>
 ##   respiration_per_min eye_condition teeth_condition measurement_id
 ## 1                  12        Normal            Worn              1
 ## 2                  NA        Normal            Good              2</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="relational-database.html#cb21-1" aria-hidden="true" tabindex="-1"></a>biometrics <span class="ot">&lt;-</span> biometrics <span class="sc">%&gt;%</span> <span class="fu">select</span>(measurement_id, <span class="fu">everything</span>()) <span class="co">#reorder columns</span></span>
-<span id="cb21-2"><a href="relational-database.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biometrics, <span class="dv">2</span>) <span class="co">#check columns are re-ordered</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="relational-database.html#cb22-1" aria-hidden="true" tabindex="-1"></a>biometrics <span class="ot">&lt;-</span> biometrics <span class="sc">%&gt;%</span> <span class="fu">select</span>(measurement_id, <span class="fu">everything</span>()) <span class="co">#reorder columns</span></span>
+<span id="cb22-2"><a href="relational-database.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biometrics, <span class="dv">2</span>) <span class="co">#check columns are re-ordered</span></span></code></pre></div>
 <pre><code>##   measurement_id skunk_id      date reproductive_status weight_g ear_nose_mm
 ## 1              1  02-20-M 4/20/2022    Distended testes      800          27
 ## 2              2  01-20-F 4/19/2022         Not active       630          24
@@ -355,65 +374,74 @@ database. Primary keys are in <strong>bold</strong> and foreign keys are in <em>
 ##   pulse_per_min respiration_per_min eye_condition teeth_condition
 ## 1            68                  12        Normal            Worn
 ## 2           120                  NA        Normal            Good</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="relational-database.html#cb23-1" aria-hidden="true" tabindex="-1"></a>biological_samples<span class="sc">$</span>sample_id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(biological_samples) <span class="co">#add column</span></span>
-<span id="cb23-2"><a href="relational-database.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biological_samples, <span class="dv">2</span>) <span class="co">#check column added</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="relational-database.html#cb24-1" aria-hidden="true" tabindex="-1"></a>biological_samples<span class="sc">$</span>sample_id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(biological_samples) <span class="co">#add column</span></span>
+<span id="cb24-2"><a href="relational-database.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biological_samples, <span class="dv">2</span>) <span class="co">#check column added</span></span></code></pre></div>
 <pre><code>##   skunk_id      date hair ear_snip scat parasites sample_id
 ## 1  01-20-F 4/19/2020    Y        Y    N         N         1
 ## 2  02-20-M 4/20/2020    Y        Y    N         N         2</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="relational-database.html#cb25-1" aria-hidden="true" tabindex="-1"></a>biological_samples <span class="ot">&lt;-</span> biological_samples <span class="sc">%&gt;%</span> <span class="fu">select</span>(sample_id, <span class="fu">everything</span>()) <span class="co">#reorder columns</span></span>
-<span id="cb25-2"><a href="relational-database.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biological_samples, <span class="dv">2</span>) <span class="co">#check columns are re-ordered</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="relational-database.html#cb26-1" aria-hidden="true" tabindex="-1"></a>biological_samples <span class="ot">&lt;-</span> biological_samples <span class="sc">%&gt;%</span> <span class="fu">select</span>(sample_id, <span class="fu">everything</span>()) <span class="co">#reorder columns</span></span>
+<span id="cb26-2"><a href="relational-database.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biological_samples, <span class="dv">2</span>) <span class="co">#check columns are re-ordered</span></span></code></pre></div>
 <pre><code>##   sample_id skunk_id      date hair ear_snip scat parasites
 ## 1         1  01-20-F 4/19/2020    Y        Y    N         N
 ## 2         2  02-20-M 4/20/2020    Y        Y    N         N</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="relational-database.html#cb27-1" aria-hidden="true" tabindex="-1"></a>tags<span class="sc">$</span>tag_id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(tags)</span>
-<span id="cb27-2"><a href="relational-database.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tags, <span class="dv">2</span>) <span class="co">#check column added</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="relational-database.html#cb28-1" aria-hidden="true" tabindex="-1"></a>tags<span class="sc">$</span>tag_id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(tags)</span>
+<span id="cb28-2"><a href="relational-database.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tags, <span class="dv">2</span>) <span class="co">#check column added</span></span></code></pre></div>
 <pre><code>##   skunk_id ear_right ear_left collar_id collar_type tag_id
 ## 1  01-22-M        30       41   165.252         VHF      1
 ## 2  02-22-F        96       68   165.371         VHF      2</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="relational-database.html#cb29-1" aria-hidden="true" tabindex="-1"></a>tags <span class="ot">&lt;-</span> tags <span class="sc">%&gt;%</span> <span class="fu">select</span> (tag_id, <span class="fu">everything</span>()) <span class="co">#reorder columns</span></span>
-<span id="cb29-2"><a href="relational-database.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tags, <span class="dv">2</span>) <span class="co">#check columns are re-ordered</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="relational-database.html#cb30-1" aria-hidden="true" tabindex="-1"></a>tags <span class="ot">&lt;-</span> tags <span class="sc">%&gt;%</span> <span class="fu">select</span> (tag_id, <span class="fu">everything</span>()) <span class="co">#reorder columns</span></span>
+<span id="cb30-2"><a href="relational-database.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tags, <span class="dv">2</span>) <span class="co">#check columns are re-ordered</span></span></code></pre></div>
 <pre><code>##   tag_id skunk_id ear_right ear_left collar_id collar_type
 ## 1      1  01-22-M        30       41   165.252         VHF
 ## 2      2  02-22-F        96       68   165.371         VHF</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="relational-database.html#cb31-1" aria-hidden="true" tabindex="-1"></a>deployments<span class="sc">$</span>deployment_id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(deployments)</span>
-<span id="cb31-2"><a href="relational-database.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(deployments, <span class="dv">2</span>) <span class="co">#check column added</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="relational-database.html#cb32-1" aria-hidden="true" tabindex="-1"></a>deployments<span class="sc">$</span>deployment_id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(deployments)</span>
+<span id="cb32-2"><a href="relational-database.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(deployments, <span class="dv">2</span>) <span class="co">#check column added</span></span></code></pre></div>
 <pre><code>##   skunk_id collar_id start_date  end_date deployment_id
 ## 1  01-22-M   165.252  3/29/2022 8/12/2022             1
 ## 2  02-22-F   165.371  3/30/2022 8/12/2022             2</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="relational-database.html#cb33-1" aria-hidden="true" tabindex="-1"></a>deployments <span class="ot">&lt;-</span> deployments <span class="sc">%&gt;%</span> <span class="fu">select</span> (deployment_id, <span class="fu">everything</span>()) <span class="co">#reorder columns</span></span>
-<span id="cb33-2"><a href="relational-database.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(deployments, <span class="dv">2</span>) <span class="co">#check columns are re-ordered</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="relational-database.html#cb34-1" aria-hidden="true" tabindex="-1"></a>deployments <span class="ot">&lt;-</span> deployments <span class="sc">%&gt;%</span> <span class="fu">select</span> (deployment_id, <span class="fu">everything</span>()) <span class="co">#reorder columns</span></span>
+<span id="cb34-2"><a href="relational-database.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(deployments, <span class="dv">2</span>) <span class="co">#check columns are re-ordered</span></span></code></pre></div>
 <pre><code>##   deployment_id skunk_id collar_id start_date  end_date
 ## 1             1  01-22-M   165.252  3/29/2022 8/12/2022
 ## 2             2  02-22-F   165.371  3/30/2022 8/12/2022</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="relational-database.html#cb36-1" aria-hidden="true" tabindex="-1"></a>observations<span class="sc">$</span>obs_id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(observations) <span class="co"># add column</span></span>
+<span id="cb36-2"><a href="relational-database.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(observations, <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##     Species Year County Latitude Longitude   Source obs_id
+## 1 Spilogale 1954  Clay  42.82260  -96.9141 Database      1
+## 2 Spilogale 1961  Lyman 43.69736 -100.0405 Database      2</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="relational-database.html#cb38-1" aria-hidden="true" tabindex="-1"></a>observations <span class="ot">&lt;-</span> observations <span class="sc">%&gt;%</span> <span class="fu">select</span> (obs_id, <span class="fu">everything</span>()) <span class="co">#reorder columns</span></span></code></pre></div>
 </div>
 <div id="populating-database-tables" class="section level2 hasAnchor" number="1.5">
 <h2><span class="header-section-number">1.5</span> Populating database tables<a href="relational-database.html#populating-database-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now that I have checked that all column names match the column names I assigned when creating the tables I can insert the data into the tables</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="relational-database.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into captures table</span></span>
-<span id="cb35-2"><a href="relational-database.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;skunks&quot;</span>, skunks, <span class="at">append =</span> T)</span>
-<span id="cb35-3"><a href="relational-database.html#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-4"><a href="relational-database.html#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into capture_sites table</span></span>
-<span id="cb35-5"><a href="relational-database.html#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;capture_sites&quot;</span>, capture_sites, <span class="at">append =</span> T)</span>
-<span id="cb35-6"><a href="relational-database.html#cb35-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-7"><a href="relational-database.html#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into captures table</span></span>
-<span id="cb35-8"><a href="relational-database.html#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;captures&quot;</span>, captures, <span class="at">append =</span> T)</span>
-<span id="cb35-9"><a href="relational-database.html#cb35-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-10"><a href="relational-database.html#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into biometrics table</span></span>
-<span id="cb35-11"><a href="relational-database.html#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;biometrics&quot;</span>, biometrics, <span class="at">append =</span> T)</span>
-<span id="cb35-12"><a href="relational-database.html#cb35-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-13"><a href="relational-database.html#cb35-13" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into biological samples table</span></span>
-<span id="cb35-14"><a href="relational-database.html#cb35-14" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;biological_samples&quot;</span>, biological_samples, <span class="at">append =</span> T)</span>
-<span id="cb35-15"><a href="relational-database.html#cb35-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-16"><a href="relational-database.html#cb35-16" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into biological samples table</span></span>
-<span id="cb35-17"><a href="relational-database.html#cb35-17" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;tags&quot;</span>, tags, <span class="at">append =</span> T)</span>
-<span id="cb35-18"><a href="relational-database.html#cb35-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-19"><a href="relational-database.html#cb35-19" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into biological samples table</span></span>
-<span id="cb35-20"><a href="relational-database.html#cb35-20" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;deployments&quot;</span>, deployments, <span class="at">append =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="relational-database.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into captures table</span></span>
+<span id="cb39-2"><a href="relational-database.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;skunks&quot;</span>, skunks, <span class="at">append =</span> T)</span>
+<span id="cb39-3"><a href="relational-database.html#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="relational-database.html#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into capture_sites table</span></span>
+<span id="cb39-5"><a href="relational-database.html#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;capture_sites&quot;</span>, capture_sites, <span class="at">append =</span> T)</span>
+<span id="cb39-6"><a href="relational-database.html#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-7"><a href="relational-database.html#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into captures table</span></span>
+<span id="cb39-8"><a href="relational-database.html#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;captures&quot;</span>, captures, <span class="at">append =</span> T)</span>
+<span id="cb39-9"><a href="relational-database.html#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-10"><a href="relational-database.html#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into biometrics table</span></span>
+<span id="cb39-11"><a href="relational-database.html#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;biometrics&quot;</span>, biometrics, <span class="at">append =</span> T)</span>
+<span id="cb39-12"><a href="relational-database.html#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-13"><a href="relational-database.html#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into biological samples table</span></span>
+<span id="cb39-14"><a href="relational-database.html#cb39-14" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;biological_samples&quot;</span>, biological_samples, <span class="at">append =</span> T)</span>
+<span id="cb39-15"><a href="relational-database.html#cb39-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-16"><a href="relational-database.html#cb39-16" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into biological samples table</span></span>
+<span id="cb39-17"><a href="relational-database.html#cb39-17" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;tags&quot;</span>, tags, <span class="at">append =</span> T)</span>
+<span id="cb39-18"><a href="relational-database.html#cb39-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-19"><a href="relational-database.html#cb39-19" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into biological samples table</span></span>
+<span id="cb39-20"><a href="relational-database.html#cb39-20" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;deployments&quot;</span>, deployments, <span class="at">append =</span> T)</span>
+<span id="cb39-21"><a href="relational-database.html#cb39-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-22"><a href="relational-database.html#cb39-22" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into reports table</span></span>
+<span id="cb39-23"><a href="relational-database.html#cb39-23" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;observations&quot;</span>, observations, <span class="at">append =</span> T)</span></code></pre></div>
 </div>
 <div id="querying-the-database" class="section level2 hasAnchor" number="1.6">
 <h2><span class="header-section-number">1.6</span> Querying the database<a href="relational-database.html#querying-the-database" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now that I have inserted data into the table, I can make basic queries to check that the data has been inserted into the tables correctly</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="relational-database.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(skunks_db, <span class="st">&quot;SELECT * FROM skunks LIMIT 10;&quot;</span>) <span class="co">#skunks table</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="relational-database.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(skunks_db, <span class="st">&quot;SELECT * FROM skunks LIMIT 10;&quot;</span>) <span class="co">#skunks table</span></span></code></pre></div>
 <pre><code>##    skunk_id sex age_class
 ## 1   01-20-F   F     adult
 ## 2   02-20-M   M     adult
@@ -425,7 +453,7 @@ database. Primary keys are in <strong>bold</strong> and foreign keys are in <em>
 ## 8   06-21-F   F     adult
 ## 9   07-21-M   M     adult
 ## 10  08-21-M   M     adult</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="relational-database.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(skunks_db, <span class="st">&quot;SELECT * FROM capture_sites LIMIT 10;&quot;</span>) <span class="co">#capture sites table</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="relational-database.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(skunks_db, <span class="st">&quot;SELECT * FROM capture_sites LIMIT 10;&quot;</span>) <span class="co">#capture sites table</span></span></code></pre></div>
 <pre><code>##       site  utm_x   utm_y
 ## 1  F003-20 481063 4987647
 ## 2  F006-20 480943 4989279
@@ -437,7 +465,7 @@ database. Primary keys are in <strong>bold</strong> and foreign keys are in <em>
 ## 8  F048-21 480580 4998646
 ## 9  F053-21 478288 4998991
 ## 10 F066-21 480551 4995177</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="relational-database.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(skunks_db, <span class="st">&quot;SELECT * FROM captures LIMIT 10;&quot;</span>) <span class="co">#captures table</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="relational-database.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(skunks_db, <span class="st">&quot;SELECT * FROM captures LIMIT 10;&quot;</span>) <span class="co">#captures table</span></span></code></pre></div>
 <pre><code>##    capture_id skunk_id      date    site
 ## 1           1  01-20-F 4/18/2020 F006-20
 ## 2           2  02-20-M 4/19/2020 F003-20
@@ -449,7 +477,7 @@ database. Primary keys are in <strong>bold</strong> and foreign keys are in <em>
 ## 8           8  04-21-M 3/27/2021 F033-21
 ## 9           9  04-21-M  4/2/2021 F034-21
 ## 10         10  05-21-M  4/3/2021 F034-21</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="relational-database.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(skunks_db, <span class="st">&quot;SELECT * FROM biometrics LIMIT 10;&quot;</span>) <span class="co">#biometrics table</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="relational-database.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(skunks_db, <span class="st">&quot;SELECT * FROM biometrics LIMIT 10;&quot;</span>) <span class="co">#biometrics table</span></span></code></pre></div>
 <pre><code>##    measurement_id skunk_id      date reproductive_status weight_g ear_nose_mm
 ## 1               1  02-20-M 4/20/2022    Distended testes      800        27.0
 ## 2               2  01-20-F 4/19/2022         Not active       630        24.0
@@ -483,7 +511,7 @@ database. Primary keys are in <strong>bold</strong> and foreign keys are in <em>
 ## 8             NA                  76        Normal       Broken M1
 ## 9             52                  40        Normal            Good
 ## 10            40                  36        Normal            Good</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="relational-database.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(skunks_db, <span class="st">&quot;SELECT * FROM biological_samples LIMIT 10;&quot;</span>) <span class="co">#samples table</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="relational-database.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(skunks_db, <span class="st">&quot;SELECT * FROM biological_samples LIMIT 10;&quot;</span>) <span class="co">#samples table</span></span></code></pre></div>
 <pre><code>##    sample_id skunk_id      date hair ear_snip scat parasites
 ## 1          1  01-20-F 4/19/2020    Y        Y    N         N
 ## 2          2  02-20-M 4/20/2020    Y        Y    N         N
@@ -495,7 +523,7 @@ database. Primary keys are in <strong>bold</strong> and foreign keys are in <em>
 ## 8          8  04-21-M 3/27/2021    Y        Y    N         N
 ## 9          9  05-21-M  4/3/2021    Y        Y    Y         Y
 ## 10        10  06-21-F  4/3/2021    Y        Y    N         N</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="relational-database.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(skunks_db, <span class="st">&quot;SELECT * FROM tags LIMIT 10;&quot;</span>) <span class="co">#tags table</span></span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="relational-database.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(skunks_db, <span class="st">&quot;SELECT * FROM tags LIMIT 10;&quot;</span>) <span class="co">#tags table</span></span></code></pre></div>
 <pre><code>##    tag_id skunk_id ear_left ear_right collar_id collar_type
 ## 1       1  01-22-M       41        30   165.252         VHF
 ## 2       2  02-22-F       68        96   165.371         VHF
@@ -507,7 +535,7 @@ database. Primary keys are in <strong>bold</strong> and foreign keys are in <em>
 ## 8       8  01-21-M       76       100   165.064         VHF
 ## 9       9  02-21-M       23         1     165.2         GPS
 ## 10     10  03-21-F       22         2   165.022         VHF</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="relational-database.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(skunks_db, <span class="st">&quot;SELECT * FROM deployments LIMIT 10;&quot;</span>) <span class="co">#deployments table</span></span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="relational-database.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(skunks_db, <span class="st">&quot;SELECT * FROM deployments LIMIT 10;&quot;</span>) <span class="co">#deployments table</span></span></code></pre></div>
 <pre><code>##    deployment_id skunk_id collar_id start_date  end_date
 ## 1              1  01-22-M   165.252  3/29/2022 8/12/2022
 ## 2              2  02-22-F   165.371  3/30/2022 8/12/2022
@@ -519,6 +547,17 @@ database. Primary keys are in <strong>bold</strong> and foreign keys are in <em>
 ## 8              8  01-21-M   165.064  3/20/2021 7/14/2021
 ## 9              9  02-21-M     165.2  3/25/2021 4/1/20221
 ## 10            10  03-21-F   165.022  3/25/2021  5/6/2021</code></pre>
+<pre><code>##    report_id   Species Year    County Latitude  Longitude   Source
+## 1          1 Spilogale 1954     Clay  42.82260  -96.91410  VertNet
+## 2          2 Spilogale 1961     Lyman 43.69736 -100.04046  VertNet
+## 3          3 Spilogale 1965   Sanborn 44.06667  -98.26944    SDNHD
+## 4          4 Spilogale 1965    Hamlin 44.75970  -97.37920  VertNet
+## 5          5 Spilogale 1965  Roberts  45.40225  -96.66054  VertNet
+## 6          6 Spilogale 1970 Bon Homme 43.13414  -97.70280  Trapper
+## 7          7 Spilogale 1972     Meade 45.02083 -102.18889    SDNHD
+## 8          8 Spilogale 1975    Potter 45.07187  -99.77059 ListServ
+## 9          9 Spilogale 1975    McCook 43.68697  -97.41057  Trapper
+## 10        10 Spilogale 1981     Lyman 43.79861  -99.68194    SDNHD</code></pre>
 
 </div>
 </div>
@@ -527,8 +566,8 @@ database. Primary keys are in <strong>bold</strong> and foreign keys are in <em>
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="plains-spotted-skunk-distribution-in-south-dakota.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

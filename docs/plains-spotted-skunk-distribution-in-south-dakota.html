@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Plains Spotted Skunk Distribution in South Dakota | Plains spotted skunks in South Dakota</title>
+  <meta name="description" content="<p>This is my initial attempt using the bookdown package to write a book website
+exploring spotted skunk data in South Dakota as part of the
+RDS 2023 course requirements.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Plains Spotted Skunk Distribution in South Dakota | Plains spotted skunks in South Dakota" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is my initial attempt using the bookdown package to write a book website
+exploring spotted skunk data in South Dakota as part of the
+RDS 2023 course requirements.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Plains Spotted Skunk Distribution in South Dakota | Plains spotted skunks in South Dakota" />
+  
+  <meta name="twitter:description" content="<p>This is my initial attempt using the bookdown package to write a book website
+exploring spotted skunk data in South Dakota as part of the
+RDS 2023 course requirements.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Kara White" />
+
+
+<meta name="date" content="2023-04-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="relational-database.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="1" data-path="relational-database.html"><a href="relational-database.html"><i class="fa fa-check"></i><b>1</b> Relational Database</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="relational-database.html"><a href="relational-database.html#designing-a-database"><i class="fa fa-check"></i><b>1.1</b> Designing a Database</a></li>
+<li class="chapter" data-level="1.2" data-path="relational-database.html"><a href="relational-database.html#creating-the-database"><i class="fa fa-check"></i><b>1.2</b> Creating the Database</a></li>
+<li class="chapter" data-level="1.3" data-path="relational-database.html"><a href="relational-database.html#creating-tables"><i class="fa fa-check"></i><b>1.3</b> Creating tables</a></li>
+<li class="chapter" data-level="1.4" data-path="relational-database.html"><a href="relational-database.html#reading-in-csvs"><i class="fa fa-check"></i><b>1.4</b> Reading in CSVs</a></li>
+<li class="chapter" data-level="1.5" data-path="relational-database.html"><a href="relational-database.html#populating-database-tables"><i class="fa fa-check"></i><b>1.5</b> Populating database tables</a></li>
+<li class="chapter" data-level="1.6" data-path="relational-database.html"><a href="relational-database.html#querying-the-database"><i class="fa fa-check"></i><b>1.6</b> Querying the database</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html"><i class="fa fa-check"></i><b>2</b> Plains Spotted Skunk Distribution in South Dakota</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#spotted-skunk-locations-across-the-state"><i class="fa fa-check"></i><b>2.1</b> Spotted skunk locations across the state</a></li>
+<li class="chapter" data-level="2.2" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#sources-of-reported-spotted-skunk-observations"><i class="fa fa-check"></i><b>2.2</b> Sources of reported spotted skunk observations</a></li>
+<li class="chapter" data-level="2.3" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#contemporary-data-and-geographical-uncertainty"><i class="fa fa-check"></i><b>2.3</b> Contemporary Data and geographical uncertainty</a></li>
+<li class="chapter" data-level="2.4" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#analytical-decision-making"><i class="fa fa-check"></i><b>2.4</b> Analytical Decision-Making</a></li>
+<li class="chapter" data-level="2.5" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#climate-data-exploration"><i class="fa fa-check"></i><b>2.5</b> Climate data exploration</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Plains spotted skunks in South Dakota</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="plains-spotted-skunk-distribution-in-south-dakota" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Plains Spotted Skunk Distribution in South Dakota<a href="plains-spotted-skunk-distribution-in-south-dakota.html#plains-spotted-skunk-distribution-in-south-dakota" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:flyer"></span>
+<img src="skunk_flyer.png" alt="A 'wanted' flyer created to solicit spotted skunk observations" width="100%" />
+<p class="caption">
+Figure 2.1: A ‘wanted’ flyer created to solicit spotted skunk observations
+</p>
+</div>
+<p>I conducted a widespread campaign to solicit plains spotted skunk observations
+in South Dakota. I encouraged respondents to report plains spotted skunk
+observations via phone, email, or online through an iNaturalist project page
+that we created to aggregate online reports. Targeted respondents included
+state natural resource managers, academic institutions, furbearer license
+holders and state trapper association members, agricultural landowners, and
+members of various hunting and wildlife-oriented social groups. Information
+appeared in multiple news publications throughout the state, including in print,
+online, and over the radio. I also queried the [VertNet] (<a href="http://vertnet.org/" class="uri">http://vertnet.org/</a>)
+and [Global Biodiversity Information Facility (GBIF)] (<a href="https://www.gbif.org/" class="uri">https://www.gbif.org/</a>)
+databases, reviewed published and ongoing wildlife research in South Dakota,
+and accessed data maintained by the South Dakota Game Fish and Parks (SDGFP)
+Natural Heritage Program. Finally, I reviewed information from the South Dakota
+Department of Transportation’s roadkill image database for all roadkill tagged
+as a “small animal.”</p>
+<p>I compiled all observations into a table I named “obs”. How many observations
+did I collect?</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb55-1" aria-hidden="true" tabindex="-1"></a>obs <span class="sc">%&gt;%</span> </span>
+<span id="cb55-2"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">obs_id =</span> <span class="fu">n</span>())</span></code></pre></div>
+<pre><code>##   obs_id
+## 1    186</code></pre>
+<p>I collected 186 records. Let’s see how those records vary by county.</p>
+<div id="spotted-skunk-locations-across-the-state" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Spotted skunk locations across the state<a href="plains-spotted-skunk-distribution-in-south-dakota.html#spotted-skunk-locations-across-the-state" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<pre><code>## Reading layer `County_Boundaries__Census_2010&#39; from data source 
+##   `C:\Users\Kara.White\OneDrive - South Dakota State University - SDSU\Dissertation - SDSU\SDHM\sdhmR-V2022.1\spottedskunk\SDCountyBoundaries&#39; 
+##   using driver `ESRI Shapefile&#39;
+## Simple feature collection with 66 features and 37 fields
+## Geometry type: POLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -104.0577 ymin: 42.47969 xmax: -96.43648 ymax: 45.94572
+## Geodetic CRS:  WGS 84</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb58-1" aria-hidden="true" tabindex="-1"></a>SDak <span class="sc">%&gt;%</span> </span>
+<span id="cb58-2"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_join</span>(obs_sf) <span class="sc">%&gt;%</span> </span>
+<span id="cb58-3"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(NAME) <span class="sc">%&gt;%</span> </span>
+<span id="cb58-4"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n_county =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb58-5"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb58-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb58-6"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb58-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> n_county)) <span class="sc">+</span></span>
+<span id="cb58-7"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb58-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">name =</span> <span class="st">&quot;Number of observations&quot;</span>, <span class="at">option =</span> <span class="st">&quot;magma&quot;</span>) <span class="sc">+</span></span>
+<span id="cb58-8"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb58-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Spotted skunk occurrences by county&quot;</span>) <span class="sc">+</span></span>
+<span id="cb58-9"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb58-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb58-10"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb58-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/occurrences%20by%20county-1.png" width="672" /></p>
+<p>We can see that most reported spotted skunk observations were clustered in
+eastern South Dakota, and that one county had over 50 observations! That’s
+because one trapper provided a lot of data.</p>
+</div>
+<div id="sources-of-reported-spotted-skunk-observations" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Sources of reported spotted skunk observations<a href="plains-spotted-skunk-distribution-in-south-dakota.html#sources-of-reported-spotted-skunk-observations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s take a look at some of the data providers</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb59-1" aria-hidden="true" tabindex="-1"></a>obs <span class="sc">%&gt;%</span> </span>
+<span id="cb59-2"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Source) <span class="sc">%&gt;%</span> </span>
+<span id="cb59-3"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Source =</span> <span class="fu">reorder</span>(Source, n)) <span class="sc">%&gt;%</span></span>
+<span id="cb59-4"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Source, <span class="at">y =</span> n, <span class="at">fill =</span> Source)) <span class="sc">+</span></span>
+<span id="cb59-5"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb59-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&#39;identity&#39;</span>) <span class="sc">+</span></span>
+<span id="cb59-6"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb59-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb59-7"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb59-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Reported spotted skunk observations by source&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>, </span>
+<span id="cb59-8"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb59-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Count&quot;</span>, </span>
+<span id="cb59-9"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb59-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Source&quot;</span>) <span class="sc">+</span></span>
+<span id="cb59-10"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb59-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb59-11"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb59-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() </span></code></pre></div>
+<p><img src="_main_files/figure-html/sources-1.png" width="672" /></p>
+<p>We can see that trappers provides the majority of spotted skunk observations,
+followed by databases, social media, and prior research.</p>
+</div>
+<div id="contemporary-data-and-geographical-uncertainty" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Contemporary Data and geographical uncertainty<a href="plains-spotted-skunk-distribution-in-south-dakota.html#contemporary-data-and-geographical-uncertainty" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Some of those records were historical and do not
+match contemporary predictor data which is available from 1970. How many reports
+do I have that occurred before 1970?</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb60-1" aria-hidden="true" tabindex="-1"></a>obs <span class="sc">%&gt;%</span> </span>
+<span id="cb60-2"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>(Year <span class="sc">&lt;=</span> <span class="dv">1970</span>)</span></code></pre></div>
+<pre><code>##   n
+## 1 6</code></pre>
+<p>I have 6 records before 1970, which I want to omit before analyses. We also had
+some locational uncertainty because some trappers provided locations to the
+nearest 1/4 section of a particular township and range rather than specific
+coordinates. I will randomly exclude one location from a pair of records that
+occurred closer than the estimated locational threshold to account for potential
+duplication of observations and to reduce the effects of spatial autocorrelation.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb62-1" aria-hidden="true" tabindex="-1"></a>obs_thin <span class="ot">&lt;-</span> obs <span class="sc">%&gt;%</span> </span>
+<span id="cb62-2"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">1970</span> <span class="sc">&amp;</span> Year <span class="sc">&lt;=</span> <span class="dv">2022</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb62-3"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb62-3" aria-hidden="true" tabindex="-1"></a>  spThin<span class="sc">::</span><span class="fu">thin</span>(<span class="at">lat.col =</span> <span class="st">&quot;Latitude&quot;</span>, </span>
+<span id="cb62-4"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb62-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">long.col =</span> <span class="st">&quot;Longitude&quot;</span>, </span>
+<span id="cb62-5"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb62-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">spec.col =</span> <span class="st">&quot;Species&quot;</span>, </span>
+<span id="cb62-6"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb62-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">thin.par =</span> <span class="dv">3</span>, </span>
+<span id="cb62-7"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb62-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">reps =</span> <span class="dv">1</span>, </span>
+<span id="cb62-8"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb62-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">locs.thinned.list.return =</span> T,</span>
+<span id="cb62-9"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb62-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">write.files =</span> F) </span></code></pre></div>
+<pre><code>## ********************************************** 
+##  Beginning Spatial Thinning.
+##  Script Started at: Fri Apr 21 15:56:08 2023
+## lat.long.thin.count
+## 129 
+##   1 
+## [1] &quot;Maximum number of records after thinning: 129&quot;
+## [1] &quot;Number of data.frames with max records: 1&quot;
+## [1] &quot;No files written for this run.&quot;</code></pre>
+<p>After spatial thinning we have 129 spotted skunk observations that I will use
+for analyses.</p>
+</div>
+<div id="analytical-decision-making" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Analytical Decision-Making<a href="plains-spotted-skunk-distribution-in-south-dakota.html#analytical-decision-making" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Most of the spotted skunk observations are in eastern
+South Dakota. Should I should omit the far western points and
+concentrate my analyses on the eastern part of the state, or retain a statewide
+analysis?</p>
+<p>Furthermore, while species distribution modeling require presence-only datasets,
+Elith et al. (2006) found that presence-absence models performed better than
+presence-only models, so I want to incorporate pseudo-absences (PsA) into my
+dataset.</p>
+<p>My next step is to generate pseudo-absence (PsA) locations, but there is no
+general consensus on how many to use.</p>
+<p>Well, since the literature doesn’t provide clear guidelines, I want to
+explore how various ratios of P:PSA to inform decision making.</p>
+<p>Creating a modeling domain and generating PsA’s requires a lot of background
+code so I went ahead and created two different modelling domains with two
+different ratios of P:PsA. I’ve included the code to see what the various
+combinations look like:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb64-2"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> obs_bbox20kmSF, <span class="at">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb64-3"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> obs<span class="fl">.10</span>xPPsASF, <span class="fu">aes</span>(<span class="at">color =</span> <span class="fu">as.factor</span>(pres)), <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb64-4"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> SDak, <span class="at">fill =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb64-5"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">&quot;Presence&quot;</span>, <span class="at">y =</span> <span class="st">&quot;10:1 P:PsA&quot;</span>, <span class="at">title =</span> <span class="st">&quot;All of South Dakota&quot;</span>) <span class="sc">+</span></span>
+<span id="cb64-6"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">option =</span> <span class="st">&quot;C&quot;</span>) <span class="sc">+</span></span>
+<span id="cb64-7"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb64-8"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="at">panel.background =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb64-9"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb64-10"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-11"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-11" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb64-12"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> obs_bbox20kmSF, <span class="at">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb64-13"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> obs<span class="fl">.100</span>xPPsASF, <span class="fu">aes</span>(<span class="at">color =</span> <span class="fu">as.factor</span>(pres)), <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb64-14"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> SDak, <span class="at">fill =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb64-15"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">&quot;Presence&quot;</span>, <span class="at">y =</span> <span class="st">&quot;100:1 P:PsA&quot;</span>) <span class="sc">+</span></span>
+<span id="cb64-16"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">option =</span> <span class="st">&quot;C&quot;</span>) <span class="sc">+</span></span>
+<span id="cb64-17"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb64-18"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-18" aria-hidden="true" tabindex="-1"></a><span class="at">panel.background =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb64-19"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb64-20"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-21"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-21" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb64-22"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> Eobs_bbox20kmSF, <span class="at">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb64-23"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> Eobs<span class="fl">.10</span>xPPsASF, <span class="fu">aes</span>(<span class="at">color =</span> <span class="fu">as.factor</span>(pres)), <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb64-24"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> SDak, <span class="at">fill =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb64-25"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">&quot;Presence&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Eastern South Dakota Only&quot;</span>) <span class="sc">+</span></span>
+<span id="cb64-26"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">option =</span> <span class="st">&quot;C&quot;</span>) <span class="sc">+</span></span>
+<span id="cb64-27"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb64-28"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-28" aria-hidden="true" tabindex="-1"></a><span class="at">panel.background =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb64-29"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-30"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-30" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb64-31"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> Eobs_bbox20kmSF, <span class="at">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb64-32"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> Eobs<span class="fl">.100</span>xPPsASF, <span class="fu">aes</span>(<span class="at">color =</span> <span class="fu">as.factor</span>(pres)), <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb64-33"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> SDak, <span class="at">fill =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb64-34"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">&quot;Presence&quot;</span>) <span class="sc">+</span></span>
+<span id="cb64-35"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">option =</span> <span class="st">&quot;C&quot;</span>) <span class="sc">+</span></span>
+<span id="cb64-36"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb64-37"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-37" aria-hidden="true" tabindex="-1"></a><span class="at">panel.background =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb64-38"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-39"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-39" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb64-40"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb64-40" aria-hidden="true" tabindex="-1"></a>(p1 <span class="sc">|</span> p3) <span class="sc">/</span> (p2 <span class="sc">|</span> p4)</span></code></pre></div>
+<p><img src="_main_files/figure-html/plots-1.png" width="672" /></p>
+<p>Now that I have my 4 datasets I am interested in how presences and
+pseudo-absences relate to various climate variables. In order to visualize
+these relationships, I had to extract values from climate rasters
+and match them to each presence and pseudo-absence location.</p>
+</div>
+<div id="climate-data-exploration" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Climate data exploration<a href="plains-spotted-skunk-distribution-in-south-dakota.html#climate-data-exploration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://www.worldclim.org/data/index.html">WorldClim</a> provides
+data for various temperature and precipitation measures and elevation.</p>
+<p>Let’s take a look at how some of the climate predictors differ between
+ratios of P:PsAs and modeling domains.</p>
+<p>But, rather than write code to makes plots for each of the four dataframes
+similar to how I did so above, this time I will write a function for boxplot
+comparisons across dataframes.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb65-1" aria-hidden="true" tabindex="-1"></a>plots <span class="ot">&lt;-</span> <span class="cf">function</span> (variable, y_label) {</span>
+<span id="cb65-2"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>))</span>
+<span id="cb65-3"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">boxplot</span>(PPsA10x_climate[, variable] <span class="sc">~</span> PPsA10x_climate<span class="sc">$</span>pres, </span>
+<span id="cb65-4"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb65-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlab =</span> <span class="st">&quot;Absence | Presence&quot;</span>, </span>
+<span id="cb65-5"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb65-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">ylab =</span> y_label, <span class="at">main =</span> <span class="st">&quot;10x PPsA&quot;</span>)</span>
+<span id="cb65-6"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">boxplot</span>(PPsA100x_climate[, variable] <span class="sc">~</span> PPsA100x_climate<span class="sc">$</span>pres, </span>
+<span id="cb65-7"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb65-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlab =</span> <span class="st">&quot;Absence | Presence&quot;</span>, </span>
+<span id="cb65-8"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb65-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">main =</span> <span class="st">&quot;100xPPsA&quot;</span>)</span>
+<span id="cb65-9"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb65-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">boxplot</span>(PPsA10xE_climate[, variable] <span class="sc">~</span> PPsA10xE_climate<span class="sc">$</span>pres, </span>
+<span id="cb65-10"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb65-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlab =</span> <span class="st">&quot;Absence | Presence&quot;</span>, </span>
+<span id="cb65-11"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb65-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">main =</span> <span class="st">&quot;10x PPsA East&quot;</span>)</span>
+<span id="cb65-12"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb65-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">boxplot</span>(PPsA100xE_climate[, variable] <span class="sc">~</span> PPsA100xE_climate<span class="sc">$</span>pres, </span>
+<span id="cb65-13"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb65-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlab =</span> <span class="st">&quot;Absence | Presence&quot;</span>, </span>
+<span id="cb65-14"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb65-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">main =</span> <span class="st">&quot;100x PPsA East&quot;</span>)</span>
+<span id="cb65-15"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb65-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb65-16"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb65-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Now I’ll use my function called “plots” to make comparisons across dataframes
+with various climate variables.</p>
+<p>First, let’s look at minimum temperature of the coldest month</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plots</span>(<span class="at">variable =</span> <span class="st">&quot;wc2.1_2.5m_bio_11&quot;</span>, <span class="st">&quot;Temp Coldest Mo.&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/temp-1.png" width="672" /></p>
+<p>From the graph we can see that the average coldest temperature for presence
+locations is slightly colder than the average coldest temperature of
+pseudo-absences. But, when we consider only eastern South Dakota we see that the
+relationship switches. Now, the average coldest temperature of presence locations
+is slightly warmer than the average coldest temperature of pseudo-absence
+locations.</p>
+<p>Let’s look at annual precipitation</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plots</span>(<span class="at">variable =</span> <span class="st">&quot;wc2.1_2.5m_bio_12&quot;</span>, <span class="st">&quot;Annual Precip&quot;</span> )</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Here we can see that when considering only eastern South Dakota, the average
+precipitation values for both presences and absences are greater than the
+average precipitation values of the entire state. This makes sense because
+eastern South Dakota generally receives much more rain than the west.</p>
+<p>Finally, let’s take a look at elevation</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plots</span>(<span class="at">variable =</span> <span class="st">&quot;wc2.1_2.5m_elev&quot;</span>, <span class="st">&quot;Elevation&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Here we see a similar pattern that we observed in the previous two graphs,
+but we also notice there is considerably more variation across values for the
+dataframes that incorporate locations across the state. In this graph, and the
+previous graphs we notice that the presence and absence response is similar
+across the two ratios of P:PsA. Maybe that’s why there is no clear consensus
+on the optimal ratio to use!</p>
+<p>Finally, we can standardize the values of all 20 climate and elevation
+predictors and plot them together to see differences. I’ll use the 10:1 P:PsA
+for all of South Dakota.</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="fu">cbind</span>(PPsA10x_climate[, <span class="dv">3</span>, <span class="at">drop =</span> F], </span>
+<span id="cb69-2"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb69-2" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">scale</span>(PPsA10x_climate[ , <span class="dv">5</span><span class="sc">:</span><span class="dv">24</span>]))) <span class="sc">%&gt;%</span> </span>
+<span id="cb69-3"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">&quot;wc&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;variable&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb69-4"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(pres), <span class="at">y =</span> value, <span class="at">color =</span> variable)) <span class="sc">+</span>  </span>
+<span id="cb69-5"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb69-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>, <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>), </span>
+<span id="cb69-6"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb69-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>)) <span class="sc">+</span></span>
+<span id="cb69-7"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb69-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb69-8"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb69-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Scaled Values&quot;</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb69-9"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb69-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb69-10"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#cb69-10" aria-hidden="true" tabindex="-1"></a><span class="fu">facet_wrap</span>(<span class="sc">~</span>variable, <span class="at">scale =</span> <span class="st">&quot;free&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/scaled-1.png" width="672" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="relational-database.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-SDM.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
