@@ -186,3 +186,20 @@ loc.cnt df.freq
 Maximum number of records after thinning: 129
 Number of data.frames with max records: 1
 No files written for this run.
+********************************************** 
+ Beginning Spatial Thinning.
+ Script Started at: Mon Apr 24 09:23:32 2023
+
+Thinning Parameter Used (in km): 3
+Number of replicates of thinning script: 1
+
+Elapsed time for thinning completion
+0.02 0 0.01 NA NA
+
+Number of data.frames per locations retained
+loc.cnt df.freq
+129
+1
+Maximum number of records after thinning: 129
+Number of data.frames with max records: 1
+No files written for this run.
