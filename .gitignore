@@ -10,3 +10,4 @@ figures/
 images/
 !docs/*.jpeg
 !website/*.jpeg
+!website/_bookdown_files/_main_files/figure-html*.png
