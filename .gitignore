@@ -1,13 +1,8 @@
 manuscripts/
 *.docx
 figures/
-*.png
-*.jpg
 .Rproj.user
 *.csv
 .Rproj.user/
 .Rhistory
 images/
-!docs/*.jpeg
-!website/*.jpeg
-!website/_bookdown_files/_main_files/figure-html*.png
