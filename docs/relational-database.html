@@ -35,7 +35,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Kara White" />
 
 
-<meta name="date" content="2023-04-24" />
+<meta name="date" content="2023-04-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -163,8 +163,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#spotted-skunk-locations-across-the-state"><i class="fa fa-check"></i><b>2.1</b> Spotted skunk locations across the state</a></li>
 <li class="chapter" data-level="2.2" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#sources-of-reported-spotted-skunk-observations"><i class="fa fa-check"></i><b>2.2</b> Sources of reported spotted skunk observations</a></li>
 <li class="chapter" data-level="2.3" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#contemporary-data-and-geographical-uncertainty"><i class="fa fa-check"></i><b>2.3</b> Contemporary Data and geographical uncertainty</a></li>
-<li class="chapter" data-level="2.4" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#analytical-decision-making"><i class="fa fa-check"></i><b>2.4</b> Analytical Decision-Making</a></li>
+<li class="chapter" data-level="2.4" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#comparisons-of-spatial-extents-and-presencepseudo-absence-ratios"><i class="fa fa-check"></i><b>2.4</b> Comparisons of spatial extents and presence:pseudo-absence ratios</a></li>
 <li class="chapter" data-level="2.5" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#climate-data-exploration"><i class="fa fa-check"></i><b>2.5</b> Climate data exploration</a></li>
+<li class="chapter" data-level="2.6" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#correlations-between-predictor-variables"><i class="fa fa-check"></i><b>2.6</b> Correlations between predictor variables</a></li>
+<li class="chapter" data-level="2.7" data-path="plains-spotted-skunk-distribution-in-south-dakota.html"><a href="plains-spotted-skunk-distribution-in-south-dakota.html#next-steps"><i class="fa fa-check"></i><b>2.7</b> Next steps</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -436,7 +438,7 @@ database. Primary keys are in <strong>bold</strong> and foreign keys are in <em>
 <span id="cb39-20"><a href="relational-database.html#cb39-20" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;deployments&quot;</span>, deployments, <span class="at">append =</span> T)</span>
 <span id="cb39-21"><a href="relational-database.html#cb39-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-22"><a href="relational-database.html#cb39-22" aria-hidden="true" tabindex="-1"></a><span class="co">#add data from csv into reports table</span></span>
-<span id="cb39-23"><a href="relational-database.html#cb39-23" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;observations&quot;</span>, observations, <span class="at">append =</span> T)</span></code></pre></div>
+<span id="cb39-23"><a href="relational-database.html#cb39-23" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(skunks_db, <span class="st">&quot;observations&quot;</span>, observations, <span class="at">overwrite =</span> T)</span></code></pre></div>
 </div>
 <div id="querying-the-database" class="section level2 hasAnchor" number="1.6">
 <h2><span class="header-section-number">1.6</span> Querying the database<a href="relational-database.html#querying-the-database" class="anchor-section" aria-label="Anchor link to header"></a></h2>

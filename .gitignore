@@ -6,3 +6,6 @@ figures/
 .Rproj.user/
 .Rhistory
 images/
+*.png
+!docs/**
+!docs/**/*.png

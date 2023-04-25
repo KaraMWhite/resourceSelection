@@ -269,7 +269,7 @@ dbWriteTable(skunks_db, "tags", tags, append = T)
 dbWriteTable(skunks_db, "deployments", deployments, append = T)
 
 #add data from csv into reports table
-dbWriteTable(skunks_db, "observations", observations, append = T)
+dbWriteTable(skunks_db, "observations", observations, overwrite = T)
 ```
 
 ## Querying the database

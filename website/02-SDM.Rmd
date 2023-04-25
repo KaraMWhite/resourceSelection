@@ -18,8 +18,8 @@ state natural resource managers, academic institutions, furbearer license
 holders and state trapper association members, agricultural landowners, and 
 members of various hunting and wildlife-oriented social groups. Information 
 appeared in multiple news publications throughout the state, including in print,
-online, and over the radio. I also queried the [VertNet] (http://vertnet.org/) 
-and [Global Biodiversity Information Facility (GBIF)] (https://www.gbif.org/) 
+online, and over the radio. I also queried the [VertNet](http://vertnet.org/) 
+and [Global Biodiversity Information Facility (GBIF)](https://www.gbif.org/) 
 databases, reviewed published and ongoing wildlife research in South Dakota, 
 and accessed data maintained by the South Dakota Game Fish and Parks (SDGFP) 
 Natural Heritage Program. Finally, I reviewed information from the South Dakota 
@@ -43,6 +43,7 @@ I collected 186 records. Let's see how those records vary by county.
 ```{r pathways, eval = TRUE, echo=FALSE}
 path.root <- "C:/Users/Kara.White/OneDrive - South Dakota State University - SDSU/Dissertation - SDSU/SDHM"
 path.skunk <- paste(path.root, "/sdhmR-V2022.1/spottedskunk", sep = "")
+
 ```
 
 ```{r shapefile, eval = TRUE, echo = FALSE, warning=FALSE, message=FALSE}
@@ -105,7 +106,6 @@ do I have that occurred before 1970?
 ```{r years, eval=TRUE, echo = TRUE}
 obs %>% 
   tally(Year <= 1970)
-
 ```
 I have 6 records before 1970, which I want to omit before analyses. We also had 
 some locational uncertainty because some trappers provided locations to the 
@@ -128,7 +128,7 @@ obs_thin <- obs %>%
 After spatial thinning we have 129 spotted skunk observations that I will use
 for analyses. 
 
-## Analytical Decision-Making
+## Comparisons of spatial extents and presence:pseudo-absence ratios
 
 Most of the spotted skunk observations are in eastern 
 South Dakota. Should I should omit the far western points and 
@@ -265,22 +265,26 @@ But, rather than write code to makes plots for each of the four dataframes
 similar to how I did so above, this time I will write a function for boxplot 
 comparisons across dataframes.
 ```{r function}
-plots <- function (variable, y_label) {
-  par(mfrow = c(1, 4))
-  boxplot(PPsA10x_climate[, variable] ~ PPsA10x_climate$pres, 
-          xlab = "Absence | Presence", 
-          ylab = y_label, main = "10x PPsA")
-  boxplot(PPsA100x_climate[, variable] ~ PPsA100x_climate$pres, 
-          xlab = "Absence | Presence", 
-          ylab = "", main = "100xPPsA")
-  boxplot(PPsA10xE_climate[, variable] ~ PPsA10xE_climate$pres, 
-          xlab = "Absence | Presence", 
-          ylab = "", main = "10x PPsA East")
-  boxplot(PPsA100xE_climate[, variable] ~ PPsA100xE_climate$pres, 
-          xlab = "Absence | Presence", 
-          ylab = "", main = "100x PPsA East")
-  par(mfrow = c(1,1))
+
+plots <- function(variable, y_label) {
+  data_list <- list(
+    PPsA10x = PPsA10x_climate,
+    PPsA100x = PPsA100x_climate,
+    PPsA10xE = PPsA10xE_climate,
+    PPsA100xE = PPsA100xE_climate)
+  
+  title_list <- c("10x PPsA", "100x PPsA", "10x PPsA East", "100x PPsA East")
+
+  plot_list <- lapply(seq_along(data_list), function(i) {
+    ggplot(data_list[[i]], aes(x = factor(pres), y = .data[[variable]])) +
+      geom_boxplot() +
+      labs(x = "Absence | Presence", y = ifelse(i == 1, y_label, "")) +
+      ggtitle(title_list[i]) +
+      theme_bw()
+  })
+  cowplot::plot_grid(plotlist = plot_list, nrow = 1)
 }
+
 ```
 
 Now I'll use my function called "plots" to make comparisons across dataframes
@@ -313,21 +317,21 @@ Finally, let's take a look at elevation
 plots(variable = "wc2.1_2.5m_elev", "Elevation")
 ```
 
-Here we see a similar pattern that we observed in the previous two graphs,
-but we also notice there is considerably more variation across values for the 
-dataframes that incorporate locations across the state. In this graph, and the
-previous graphs we notice that the presence and absence response is similar
-across the two ratios of P:PsA. Maybe that's why there is no clear consensus
-on the optimal ratio to use!
+Here we see a similar pattern, When considering all of South Dakota, we notice
+that the mean elevation for presences is slightly lower than pseudo-absence 
+locations, but the mean value for both presences and pseudo-absences is about 
+the same when we restrict locations to eastern South Dakota.
 
-Finally, we can standardize the values of all 20 climate and elevation 
-predictors and plot them together to see differences. I'll use the 10:1 P:PsA 
-for all of South Dakota.
+
+For further exploratory purposes, let's standardize the values of all 20 climate
+and elevation predictors and plot them together to see differences. I'll use the
+10:1 P:PsA for all of South Dakota.
 ```{r scaled}
 
 data.frame(cbind(PPsA10x_climate[, 3, drop = F], 
                               scale(PPsA10x_climate[ , 5:24]))) %>% 
-pivot_longer(cols = starts_with("wc"), names_to = "variable", values_to = "value") %>% 
+pivot_longer(cols = starts_with("wc"), names_to = "variable", 
+             values_to = "value") %>% 
 ggplot(aes(x = factor(pres), y = value, color = variable)) +  
   theme(legend.position = "none", axis.text.x = element_text(angle = 90), 
         plot.title = element_text(size = 20)) +
@@ -336,4 +340,83 @@ ggplot(aes(x = factor(pres), y = value, color = variable)) +
   geom_boxplot() +
 facet_wrap(~variable, scale = "free")
 ```
+
+We can see that some variables have greater variation and greater differences 
+between presences and pseudo-locations. Twenty variables is a lot, and some of 
+these variables are likely correlated. We'll want to take a look at the 
+correlations between variables and remove correlated variables that can confound
+relationships between the response and predictor variables. Ideally, I want to
+aim to retain between 5-10 climate variables.
+
+## Correlations between predictor variables
+
+Let's begin with the 10:1 P:PPsA for all of South Dakota
+```{r}
+library(corrplot)
+
+vars <- PPsA10x_climate %>% 
+  select(6:25) %>% 
+  cor() %>% 
+  corrplot(method = "color",order = "AOE", diag = FALSE, type="lower", tl.col = "black", 
+           addCoef.col="black", number.cex=0.50, tl.srt = 25, 
+           main = "All Variables", mar=c(0,0,2,0))
+  
+```
+
+We can see that quite a few of the climate variables are highly correlated.
+To help me consider which predictor variables to retain from a set of highly
+correlated predictors, I want to evaluate the predictive power of individual 
+predictor variables as available in sequence within the dataframe, and then
+graph them to make easier comparisons.
+
+```{r VIP, eval=TRUE, echo=FALSE, warning=FALSE}
+varimp.glm <- function(PPsA10x_climate, var.all, pres, pf, pl) {
+  tmp.mat <- matrix(ncol = 2, nrow = (pl - pf + 1))
+  for (i in pf:pl) {
+    tmp <- glm(PPsA10x_climate[, pres] ~ var.all[, i] + I((var.all[, i])^2), 
+               na.action = na.omit, family = binomial)
+    tmp.mat[(i - pf + 1), 1] <- tmp$aic
+    tmp.mat[(i - pf + 1), 2] <- (1 - (tmp$deviance/tmp$null.deviance))
+    }
+  return(tmp.mat)
+} 
+
+PPsA10x_climate$pres <-as.numeric(PPsA10x_climate$pres)
+
+obs.vip <- PPsA10x_climate[, c(3, 6:25)] 
+  pres <- 1 
+  v.start <- 2 
+  v.stop <- ncol(obs.vip) 
+  v.num <- v.stop - 1 
+  dev.fit <- varimp.glm(obs.vip, obs.vip, pres, v.start, v.stop) 
+dev.fit <- data.frame(dev.fit) 
+
+d.max <- ceiling(signif(max(dev.fit[, 2]), 2) * 10)/10 
+ylim.r <- range(0, d.max) 
+x.labs <- names(obs.vip[2:v.stop])
+```
+
+```{r}
+ggplot(dev.fit, aes(x = x.labs, y = X2)) + 
+  geom_bar(aes(fill = x.labs), stat = "identity", show.legend = FALSE) +
+  geom_hline(yintercept = mean(dev.fit[, 2])) + 
+  theme(axis.text.x = element_text(angle = 90)) +
+  xlab("Predictor Variable") + ylab("adj.D2") 
+```
+
+We can see from the graph that some climate variable has much greater predictive
+power than others. I'll keep this in mine as I select which variables to retain
+in subsequent analyses.
+
+## Next steps
+
+My next steps are to assess for correlations and predictor importance for the 
+remaining three datasets. I'm leaning towards using the full state of South Dakota
+for analyses purposes because there is greater variation between presence and
+pseudo-absence locations which may better elucidate the differences between
+where spotted skunks are more and less likely to occur. However, the choice of
+ratio of P:PsAs to use was a little less clear. Therefore, I will analyze each
+data set and use model accuracy metrics to determine the best choice.
+
+Stay tuned!
 

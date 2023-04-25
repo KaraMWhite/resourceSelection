@@ -11,5 +11,7 @@ plains-spotted-skunk-distribution-in-south-dakota
 spotted-skunk-locations-across-the-state
 sources-of-reported-spotted-skunk-observations
 contemporary-data-and-geographical-uncertainty
-analytical-decision-making
+comparisons-of-spatial-extents-and-presencepseudo-absence-ratios
 climate-data-exploration
+correlations-between-predictor-variables
+next-steps
